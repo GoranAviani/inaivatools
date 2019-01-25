@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'expandeduser.apps.ExpandeduserConfig',
 ]
 
-AUTH_USER_MODEL = 'expandeduser.CustomUser'
+AUTH_USER_MODEL = 'expandeduser.custom_user'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
