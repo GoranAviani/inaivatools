@@ -62,7 +62,7 @@
                           {% if user.is_authenticated %}
                           <a href="#">Hi {{ user.username }}! </a>
                         {% else %}
-                          <a href="#">You are not logged in</a>
+                          <a href="{% url 'login' %}">You are not logged in</a>
                         {% endif %}
 
 
