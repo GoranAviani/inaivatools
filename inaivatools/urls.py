@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('expandeduser.urls')),
     path('users/', include('django.contrib.auth.urls')),
+    path('merge/', include('mergetextlines.urls')),
+
 ]
