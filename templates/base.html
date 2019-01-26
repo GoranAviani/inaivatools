@@ -56,16 +56,33 @@
 
 
                           <li><a href="#">Support </a></li>
-                          <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                              
+
+
+                        <li>
+                          {% if user.is_authenticated %}
+                          <a href="#">Hi {{ user.user_name }}! </a>
+                        {% else %}
+                          <a href="#">You are not logged in</a>
+                        {% endif %}
+
+
+                        </li>
+                          <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">      
                             <img src="{% static "images/user.png" %}" class="nav-avatar" />
                               <b class="caret"></b></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="#">Your Profile</a></li>
-                                  <li><a href="#">Edit Profile</a></li>
-                                  <li><a href="#">Account Settings</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">Logout</a></li>
+                                  {% if user.is_authenticated %}
+                                    <li><a href="#">Your Profile</a></li>
+                                    <li><a href="#">Edit Profile</a></li>
+                                    <li><a href="#">Account Settings</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                  {% else %}
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                                  {% endif %}
+
+                                  
                               </ul>
                           </li>
                       </ul>
