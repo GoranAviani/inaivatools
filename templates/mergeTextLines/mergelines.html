@@ -2,27 +2,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="normal-center-page ">
   <div class="container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
         <div class="well  normal-center-container">
-          <h2 class="text-center">Edit link</h2>
-          <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-              <label>Name</label>
-              {{form_link_create.link_name}}
-            </div>
-            <div class="form-group">
-              <label>URL</label>
-              {{form_link_create.link_url}}
-            </div>
-              <button type="submit" class="btn  btn-primary btn-main-blue btn-big btn-100percent">Update</button>
-          </form>
+            <h2>Merge Text Lines</h2>            
+            <form method="post" class="form-horizontal row-fluid">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Input lines:</label>
+                    <div class="controls">
+                        {{textToJoin.inputText}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Join by:</label>
+                    <div class="controls">
+                        {{textToJoin.joinBy}} <span class="help-inline">Comma (,) by default</span>   
+                    </div>            
+                </div>
+
+                <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-large btn-primary">Join lines</button>    
+                      </div>
+                    
+            </form>
         </div>
-      </div>
-    </div>
   </div>
-</div>
 {% endblock %}
