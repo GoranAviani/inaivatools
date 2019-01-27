@@ -11,6 +11,7 @@ def merge_text_input(request):
             texdata = textToJoin['inputText'].value()
             mergeBy = textToJoin['joinBy'].value()
             
+            #replacing \r\n with a inputed character
             texdata = texdata.replace("\r\n", mergeBy)
             data = {'inputText': texdata, 'joinBy': mergeBy}
             textToJoin = merge_text_input_form(initial=data)
