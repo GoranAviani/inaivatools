@@ -23,5 +23,6 @@ urlpatterns = [
     path('users/', include('expandeduser.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('merge/', include('mergetextlines.urls')),
+    path('format/', include('formattelnumbers.urls')),
 
 ]
