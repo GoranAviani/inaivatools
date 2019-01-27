@@ -8,12 +8,12 @@ def merge_text_input(request):
         textToJoin = merge_text_input_form(request.POST)
         if textToJoin.is_valid():
 
-            texdata = textToJoin['inputText'].value()
+            textdata = textToJoin['inputText'].value()
             mergeBy = textToJoin['joinBy'].value()
             
             #replacing \r\n with a inputed character
-            texdata = texdata.replace("\r\n", mergeBy)
-            data = {'inputText': texdata, 'joinBy': mergeBy}
+            textdata = textdata.replace("\r\n", mergeBy)
+            data = {'inputText': textdata, 'joinBy': mergeBy}
             textToJoin = merge_text_input_form(initial=data)
             
             return render(request, 'mergeTextLines/mergelines.html', {'textToJoin': textToJoin})
