@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from formattelnumbers import cleaningTelNum
 
 # Create your views here.
 from .forms import format_tel_numbers_input_form
@@ -12,11 +13,18 @@ def turn_textdata_to_list(textdata):
 
 
 #turn list into rows
-def turn_listTextData_to_row(listTextData):     
-    rowTextData = "\r\n".join(str(x) for x in listTextData)
+def turn_list_to_row(numberList):     
+    rowTextData = "\r\n".join(str(x) for x in numberList)
     return rowTextData
 
-
+#Fix telephone format
+def fix_telephone_format(telephoneNo):
+    telephoneNo = cleaningTelNum.remove_first_space_from_tel(telephoneNo)
+    telephoneNo = cleaningTelNum.remove_plus_from_tel(telephoneNo)
+    telephoneNo = cleaningTelNum.remove_country_code(telephoneNo)
+    telephoneNo = cleaningTelNum.place_zero_at_first(telephoneNo)
+    telephoneNo = cleaningTelNum.remove_all_characters(telephoneNo)
+    return telephoneNo
 
 # Create your views here.
 def format_tel_numbers_input(request):
@@ -30,11 +38,15 @@ def format_tel_numbers_input(request):
             #turn tel numbers into a list
             listTextData = turn_textdata_to_list(textdata)
 
+            listResult = []
+            for number in listTextData:
+                number = fix_telephone_format(number)
+                listResult.append(number)
+
+
+
             #turn list into rows
-            rowTextData = turn_listTextData_to_row(listTextData)
-
-
-
+            rowTextData = turn_list_to_row(listResult)
 
 
 
