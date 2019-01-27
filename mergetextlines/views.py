@@ -8,10 +8,14 @@ def merge_text_input(request):
         textToJoin = merge_text_input_form(request.POST)
         if textToJoin.is_valid():
 
-            data = {'inputText': "aaa", 'joinBy': "bbb"}
-            form = merge_text_input_form(initial=data)
-            return render(request, 'mergeTextLines/mergelines.html', {'form': form})
-            #return render(request, 'mergeTextLines/mergelines.html', {'textToJoin': textToJoin})
+            texdata = textToJoin['inputText'].value()
+            mergeBy = textToJoin['joinBy'].value()
+            
+            texdata = texdata.replace("\r\n", mergeBy)
+            data = {'inputText': texdata, 'joinBy': mergeBy}
+            textToJoin = merge_text_input_form(initial=data)
+            
+            return render(request, 'mergeTextLines/mergelines.html', {'textToJoin': textToJoin})
 
     else:
         textToJoin = merge_text_input_form()
