@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from . import views
+
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
@@ -24,5 +26,8 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('merge/', include('mergetextlines.urls')),
     path('format/', include('formattelnumbers.urls')),
+
+    path('support/', views.render_support_page, name='supportPage'),
+
 
 ]
