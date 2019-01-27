@@ -3,6 +3,21 @@ from django.shortcuts import render
 # Create your views here.
 from .forms import format_tel_numbers_input_form
 
+#turn tel numbers into a list
+def turn_textdata_to_list(textdata):
+    listTextData = textdata.split("\r\n")
+    return listTextData
+
+# fixing telephone numbers
+
+
+#turn list into rows
+def turn_listTextData_to_row(listTextData):     
+    rowTextData = "\r\n".join(str(x) for x in listTextData)
+    return rowTextData
+
+
+
 # Create your views here.
 def format_tel_numbers_input(request):
     if request.method == 'POST':
@@ -12,7 +27,18 @@ def format_tel_numbers_input(request):
 
             textdata = numbersToFormat['inputText'].value()
             
-            data = {'inputText': "texdata"}
+            #turn tel numbers into a list
+            listTextData = turn_textdata_to_list(textdata)
+
+            #turn list into rows
+            rowTextData = turn_listTextData_to_row(listTextData)
+
+
+
+
+
+
+            data = {'inputText': rowTextData}
             numbersToFormat = format_tel_numbers_input_form(initial=data)
 
 
