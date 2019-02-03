@@ -9,7 +9,7 @@ class format_tel_numbers_input_form(forms.Form):
     
 
 
-class uploaded_documents(forms.ModelForm):
+class uploaded_documents_form(forms.ModelForm):
     class Meta:
         model = uploaded_documents
         fields = ('description', 'document', )

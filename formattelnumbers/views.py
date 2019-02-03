@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from formattelnumbers import cleaningTelNum
 
 # Create your views here.
-from .forms import format_tel_numbers_input_form
+from .forms import format_tel_numbers_input_form, uploaded_documents_form
 
 #turn tel numbers into a list
 def turn_textdata_to_list(textdata):
@@ -59,4 +59,18 @@ def format_tel_numbers_input(request):
     else:
         numbersToFormat = format_tel_numbers_input_form()
         return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
+
+
+
+def format_tel_numbers_upload(request):
+    if request.method == 'POST':
+        form = uploaded_documents_form(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = uploaded_documents_form()
+    return render(request, 'formatTelNumbers/format_tel_numbers_upload.html', {
+        'form': form
+    })
 
