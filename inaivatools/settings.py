@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'expandeduser.apps.ExpandeduserConfig',
+    'formattelnumbers',
 ]
 
 AUTH_USER_MODEL = 'expandeduser.custom_user'
@@ -132,3 +133,10 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
