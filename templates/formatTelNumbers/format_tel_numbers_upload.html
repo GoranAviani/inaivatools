@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-  </form>
+  <div class="container">
+    <div class="well  normal-center-container">
+        <h2>Format telephone numbers - Swedish edition</h2>            
+        <form method="post" enctype="multipart/form-data" class="form-horizontal row-fluid">
+            {% csrf_token %}
+            <div class="control-group">
+                <label class="control-label" for="basicinput">Description:</label>
+                <div class="controls">
+                    {{form.description}}
+                </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="basicinput">Upload file:</label>
+              <div class="controls">
+                  {{form.document}}
+              </div>
+          </div>
+            <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-large btn-primary">Upload</button>    
+            </div>                 
+        </form>
+        <div class="d-flex justify-content-center">
+            <p><a href="{% url 'index' %}" class="btn btn-large btn-primary">Return to dashboard</a></p>
+          
+        </div>    
+    </div>
+</div>
 
-  <p><a href="{% url 'index' %}">Return to home</a></p>
 {% endblock %}
