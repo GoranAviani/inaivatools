@@ -66,6 +66,9 @@ def format_tel_numbers_upload(request):
     if request.method == 'POST':
         form = uploaded_documents_form(request.POST, request.FILES)
         if form.is_valid():
+            documentName = form['document'].value()
+            documentFullLocation = "format_tel_number/" + str(documentName)
+            print(documentFullLocation)
             form.save()
             return redirect('index')
     else:
