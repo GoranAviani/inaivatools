@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'expandeduser.apps.ExpandeduserConfig',
     'formattelnumbers',
+    'openpyxl',
 ]
 
 AUTH_USER_MODEL = 'expandeduser.custom_user'

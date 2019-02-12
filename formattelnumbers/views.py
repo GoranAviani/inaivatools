@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from formattelnumbers import cleaningTelNum
-
+#format uploaded files
+#from openpyxl import *
+import openpyxl
 # Create your views here.
+
 from .forms import format_tel_numbers_input_form, uploaded_documents_form
+from .models import uploaded_documents
 
 #turn tel numbers into a list
 def turn_textdata_to_list(textdata):
@@ -66,9 +70,28 @@ def format_tel_numbers_upload(request):
     if request.method == 'POST':
         form = uploaded_documents_form(request.POST, request.FILES)
         if form.is_valid():
-            documentName = form['document'].value()
-            documentFullLocation = "format_tel_number/" + str(documentName)
-            print(documentFullLocation)
+          
+          #  documentName = form['document'].value()
+          #  documentFullLocation = "format_tel_number/" + str(documentName)
+          
+            obj = (uploaded_documents.objects.latest('uploaded_at'))
+            print("\n\n evo ga:\n")
+            print(obj)
+            print("\n\n evo ga:\n")
+
+            print(obj.document)            
+            print("\n\n evo ga:\n")
+
+            print(obj.uploaded_at)
+
+
+
+
+          #  theFile = openpyxl.load_workbook(documentFullLocation)
+          #  allSheetNames = theFile.sheetnames
+
+          #  print("All sheet names {} " .format(theFile.sheetnames))
+
             form.save()
             return redirect('index')
     else:
