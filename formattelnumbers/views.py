@@ -35,7 +35,7 @@ def format_tel_numbers_input(request):
 
             listResult = []
             for number in listTextData:
-                number = cleningTelNumPreparation.fix_telephone_format(number)
+                number = cleaningTelNumPreparation.fix_telephone_format(number)
                 listResult.append(number)
 
             #turn list into rows
