@@ -108,7 +108,7 @@ def find_specific_cell(currentSheet):
                 print("Specific cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
                 return cell_name
 
-def get_column_letter(specificCellLetter):
+def get_column_letter(specificCellLetter): #gets just cell letter from cell name (ex gets f from f1)
     letter = specificCellLetter[0:-1]
     print(letter)
     return letter
@@ -122,20 +122,13 @@ def format_tel_numbers_upload(request):
           #  documentFullLocation = "format_tel_number/" + str(documentName)
           
             obj = (uploaded_documents.objects.latest('uploaded_at'))
+               
             print("\n\n evo ga:\n")
-            print(obj)
-            print("\n\n evo ga:\n")
-
-            print(obj.document)            
-            print("\n\n evo ga:\n")
-
-            print(obj.uploaded_at)
-
             form.save()
             theFile = openpyxl.load_workbook(obj.document)
             allSheetNames = theFile.sheetnames
 
-            print("All sheet names {} " .format(allSheetNames)) 
+            print("\n\nAll sheet names {} " .format(allSheetNames)) 
             for sheet in allSheetNames:
                 print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
                 currentSheet = theFile[sheet]
@@ -143,7 +136,7 @@ def format_tel_numbers_upload(request):
                 letter = get_column_letter(specificCellLetter)
 
 
-            get_all_values_by_cell_letter(letter, currentSheet)
+                get_all_values_by_cell_letter(letter, currentSheet)
 
             theFile.save("media1/" + str(obj.document))
 
