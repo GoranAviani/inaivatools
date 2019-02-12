@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 from django.core.files.storage import FileSystemStorage
+#from django.conf import settings
+#import os
 
 
 class OverwriteStorage(FileSystemStorage):
