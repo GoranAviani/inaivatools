@@ -66,6 +66,53 @@ def format_tel_numbers_input(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+def get_all_values_by_cell_letter(letter, currentSheet):
+    for row in range(1, currentSheet.max_row + 1):
+        for column in letter:
+            cell_name = "{}{}".format(column, row)
+            #print(cell_name)
+            #take old data and send it to fixing
+            telephoneNo = fix_telephone_format(currentSheet[cell_name].value)
+            #put new data in cell
+
+
+            #print(letter + "1")
+            if cell_name == (letter + "1"):
+                #print(letter + "0")
+                #print("aaaaa")
+                currentSheet[cell_name].value = "telephone"
+            else:
+                currentSheet[cell_name].value = telephoneNo
+
+
+
+            print("Cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
+
+
+
+def find_specific_cell(currentSheet):
+    for row in range(1, currentSheet.max_row + 1):
+        for column in "ABCDEFGHIJKL":  # Here you can add or reduce the columns
+            cell_name = "{}{}".format(column, row)
+            if currentSheet[cell_name].value == "telephone":
+                print("Specific cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
+                return cell_name
+
+def get_column_letter(specificCellLetter):
+    letter = specificCellLetter[0:-1]
+    print(letter)
+    return letter
+
 def format_tel_numbers_upload(request):
     if request.method == 'POST':
         form = uploaded_documents_form(request.POST, request.FILES)
@@ -84,15 +131,23 @@ def format_tel_numbers_upload(request):
 
             print(obj.uploaded_at)
 
-
-
-
-          #  theFile = openpyxl.load_workbook(documentFullLocation)
-          #  allSheetNames = theFile.sheetnames
-
-          #  print("All sheet names {} " .format(theFile.sheetnames))
-
             form.save()
+            theFile = openpyxl.load_workbook(obj.document)
+            allSheetNames = theFile.sheetnames
+
+            print("All sheet names {} " .format(allSheetNames)) 
+            for sheet in allSheetNames:
+                print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
+                currentSheet = theFile[sheet]
+                specificCellLetter = (find_specific_cell(currentSheet))
+                letter = get_column_letter(specificCellLetter)
+
+
+            get_all_values_by_cell_letter(letter, currentSheet)
+
+            theFile.save("media1/" + str(obj.document))
+
+
             return redirect('index')
     else:
         form = uploaded_documents_form()
