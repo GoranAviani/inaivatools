@@ -118,14 +118,21 @@ def format_tel_numbers_upload(request):
         form = uploaded_documents_form(request.POST, request.FILES)
         if form.is_valid():
           
-          #  documentName = form['document'].value()
-          #  documentFullLocation = "format_tel_number/" + str(documentName)
-          
-            obj = (uploaded_documents.objects.latest('uploaded_at'))
+            documentName = form['document'].value()
+            
+            
+            print("\n\n evo ga:")
+            print(documentName)
+
+            print("\n\n evo ga:")
+            
+            form.save()
+           # obj = (uploaded_documents.objects.latest('uploaded_at'))
                
             print("\n\n evo ga:\n")
-            form.save()
-            theFile = openpyxl.load_workbook(obj.document)
+            
+            theFile = openpyxl.load_workbook("media/format_tel_number/" + str(documentName))
+            #theFile = openpyxl.load_workbook(obj.document)
             allSheetNames = theFile.sheetnames
 
             print("\n\nAll sheet names {} " .format(allSheetNames)) 
@@ -138,7 +145,9 @@ def format_tel_numbers_upload(request):
 
                 get_all_values_by_cell_letter(letter, currentSheet)
 
-            theFile.save("media1/" + str(obj.document))
+
+            
+            theFile.save("media/format_tel_number/" + str(documentName))
 
 
             return redirect('index')
