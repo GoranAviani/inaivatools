@@ -47,27 +47,17 @@ def format_tel_numbers_input(request):
                 number = fix_telephone_format(number)
                 listResult.append(number)
 
-
-
             #turn list into rows
             rowTextData = turn_list_to_row(listResult)
 
-
-
             data = {'inputText': rowTextData}
             numbersToFormat = format_tel_numbers_input_form(initial=data)
-
 
             return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
 
     else:
         numbersToFormat = format_tel_numbers_input_form()
         return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
-
-
-
-
-
 
 
 
@@ -94,10 +84,7 @@ def get_all_values_by_cell_letter(letter, currentSheet):
             else:
                 currentSheet[cell_name].value = telephoneNo
 
-
-
-            print("Cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
-
+            #print("Cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
 
 
 def find_specific_cell(currentSheet):
@@ -105,7 +92,7 @@ def find_specific_cell(currentSheet):
         for column in "ABCDEFGHIJKL":  # Here you can add or reduce the columns
             cell_name = "{}{}".format(column, row)
             if currentSheet[cell_name].value == "telephone":
-                print("Specific cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
+                #print("Specific cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
                 return cell_name
 
 def get_column_letter(specificCellLetter): #gets just cell letter from cell name (ex gets f from f1)
@@ -119,25 +106,15 @@ def format_tel_numbers_upload(request):
         if form.is_valid():
           
             documentName = form['document'].value()
-            
-            
-            print("\n\n evo ga:")
-            print(documentName)
-
-            print("\n\n evo ga:")
-            
+                        
             form.save()
-           # obj = (uploaded_documents.objects.latest('uploaded_at'))
-               
-            print("\n\n evo ga:\n")
-            
+
             theFile = openpyxl.load_workbook("media/format_tel_number/" + str(documentName))
-            #theFile = openpyxl.load_workbook(obj.document)
             allSheetNames = theFile.sheetnames
 
-            print("\n\nAll sheet names {} " .format(allSheetNames)) 
+#            print("\n\nAll sheet names {} " .format(allSheetNames)) 
             for sheet in allSheetNames:
-                print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
+                #print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
                 currentSheet = theFile[sheet]
                 specificCellLetter = (find_specific_cell(currentSheet))
                 letter = get_column_letter(specificCellLetter)
