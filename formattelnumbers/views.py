@@ -13,9 +13,6 @@ def turn_textdata_to_list(textdata):
     listTextData = textdata.split("\r\n")
     return listTextData
 
-# fixing telephone numbers
-
-
 #turn list into rows
 def turn_list_to_row(numberList):     
     rowTextData = "\r\n".join(str(x) for x in numberList)
