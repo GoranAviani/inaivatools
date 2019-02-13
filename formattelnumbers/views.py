@@ -80,7 +80,7 @@ def format_tel_numbers_upload(request):
             
             theFile.save("media/format_tel_number/" + str(documentName))
 
-            return redirect('index')
+            return redirect('formattelnumbersupload')
     else:
         form = uploaded_documents_form()
     return render(request, 'formatTelNumbers/format_tel_numbers_upload.html', {
