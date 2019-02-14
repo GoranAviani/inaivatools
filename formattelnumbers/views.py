@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from formattelnumbers import cleaningTelNum, cleaningTelNumPreparation
+
 #format uploaded files
 #from openpyxl import *
 import openpyxl
@@ -53,42 +54,46 @@ def format_tel_numbers_input(request):
 
 
 
-
-
-
-
 def format_tel_numbers_upload(request):
     if request.method == 'POST':
         form = uploaded_documents_form(request.POST, request.FILES)
         if form.is_valid():
           
             documentName = form['document'].value()
-                        
-            form.save()
 
-            theFile = openpyxl.load_workbook("media/format_tel_number/" + str(documentName))
-            allSheetNames = theFile.sheetnames
+            isFileSafe = cleaningTelNumPreparation.checkIfFileIsSafe(documentName)
 
-#            print("\n\nAll sheet names {} " .format(allSheetNames)) 
-            for sheet in allSheetNames:
-                #print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
-                currentSheet = theFile[sheet]
-                specificCellLetter = (cleaningTelNumPreparation.find_specific_cell(currentSheet))
-                letter = cleaningTelNumPreparation.get_column_letter(specificCellLetter)
+            if (isFileSafe == 'not_safe_to_work'):
+                form = uploaded_documents_form()
+
+            elif (isFileSafe == 'safe_to_work'):        
+                form.save()
+
+                theFile = openpyxl.load_workbook("media/format_tel_number/" + str(documentName))
+                allSheetNames = theFile.sheetnames
+
+    #            print("\n\nAll sheet names {} " .format(allSheetNames)) 
+                for sheet in allSheetNames:
+                    #print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
+                    currentSheet = theFile[sheet]
+                    specificCellLetter = (cleaningTelNumPreparation.find_specific_cell(currentSheet))
+                    letter = cleaningTelNumPreparation.get_column_letter(specificCellLetter)
 
 
-                cleaningTelNumPreparation.get_all_values_by_cell_letter(letter, currentSheet)
+                    cleaningTelNumPreparation.get_all_values_by_cell_letter(letter, currentSheet)
 
+                
+                theFile.save("media/format_tel_number/" + str(documentName))
             
-            theFile.save("media/format_tel_number/" + str(documentName))
-           
-            test_file = open("media/format_tel_number/" + str(documentName), 'rb')
-            response = HttpResponse(content=test_file)
-            response['Content-Type'] = 'xlsx'
-            response['Content-Disposition'] = 'attachment; filename="%s"' \
-                                            % (documentName) #public name
-            return response
-            #return redirect('formattelnumbersupload')
+                test_file = open("media/format_tel_number/" + str(documentName), 'rb')
+                response = HttpResponse(content=test_file)
+                response['Content-Type'] = 'xlsx'
+                response['Content-Disposition'] = 'attachment; filename="%s"' \
+                                                % (documentName) #public name
+                return response
+                #return redirect('formattelnumbersupload')
+            else:
+                form = uploaded_documents_form()
     else:
         form = uploaded_documents_form()
     return render(request, 'formatTelNumbers/format_tel_numbers_upload.html', {

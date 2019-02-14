@@ -45,3 +45,10 @@ def get_column_letter(specificCellLetter): #gets just cell letter from cell name
     letter = specificCellLetter[0:-1]
     print(letter)
     return letter
+
+
+
+#################
+#Checking if the uploaded file is safe to work with
+def checkIfFileIsSafe(documentName):
+    return 'not_safe_to_work'
