@@ -3,6 +3,8 @@ from formattelnumbers import cleaningTelNum, cleaningTelNumPreparation
 #format uploaded files
 #from openpyxl import *
 import openpyxl
+from django.http import HttpResponse
+
 # Create your views here.
 
 from .forms import format_tel_numbers_input_form, uploaded_documents_form
@@ -79,8 +81,14 @@ def format_tel_numbers_upload(request):
 
             
             theFile.save("media/format_tel_number/" + str(documentName))
-
-            return redirect('formattelnumbersupload')
+           
+            test_file = open("media/format_tel_number/" + str(documentName), 'rb')
+            response = HttpResponse(content=test_file)
+            response['Content-Type'] = 'xlsx'
+            response['Content-Disposition'] = 'attachment; filename="%s"' \
+                                            % (documentName) #public name
+            return response
+            #return redirect('formattelnumbersupload')
     else:
         form = uploaded_documents_form()
     return render(request, 'formatTelNumbers/format_tel_numbers_upload.html', {
