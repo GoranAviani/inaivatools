@@ -90,8 +90,8 @@ def format_tel_numbers_upload(request):
                 theFile.save("media/format_tel_number/" + str(documentName))
             
                 #Downloading a file
-                test_file = open("media/format_tel_number/" + str(documentName), 'rb')
-                response = HttpResponse(content=test_file)
+                downloadedFile = open("media/format_tel_number/" + str(documentName), 'rb')
+                response = HttpResponse(content=downloadedFile)
                 response['Content-Type'] = 'xlsx'
                 response['Content-Disposition'] = 'attachment; filename="%s"' \
                                                 % (documentName) #public name
