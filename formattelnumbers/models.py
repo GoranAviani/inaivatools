@@ -1,5 +1,5 @@
 from django.db import models
-
+from expandeduser.models import custom_user
 # Create your models here.
 from django.core.files.storage import FileSystemStorage
 #from django.conf import settings
@@ -22,3 +22,4 @@ class uploaded_documents(models.Model):
     description = models.CharField(max_length=255, blank=True)
     document = models.FileField(storage=OverwriteStorage(), upload_to='format_tel_number/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    document_user = models.ForeignKey(custom_user, on_delete=models.CASCADE)
