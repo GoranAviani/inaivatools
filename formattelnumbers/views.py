@@ -78,7 +78,7 @@ def format_tel_numbers_upload(request):
                     currentSheet = theFile[sheet]
                     specificCellLetter = (cleaningTelNumPreparation.find_specific_cell(currentSheet))
                     letter = cleaningTelNumPreparation.get_column_letter(specificCellLetter)
-
+ 
 
                     cleaningTelNumPreparation.get_all_values_by_cell_letter(letter, currentSheet)
 
