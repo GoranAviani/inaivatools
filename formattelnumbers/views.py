@@ -62,7 +62,7 @@ def format_tel_numbers_upload(request):
             documentName = form['document'].value()
 
             isFileSafe = cleaningTelNumPreparation.checkIfFileIsSafe(documentName)
-            isFileSafe = 'safe_to_work'
+            #isFileSafe = 'safe_to_work'
 
             if (isFileSafe == 'not_safe_to_work'):
                 form = uploaded_documents_form()

@@ -51,4 +51,9 @@ def get_column_letter(specificCellLetter): #gets just cell letter from cell name
 #################
 #Checking if the uploaded file is safe to work with
 def checkIfFileIsSafe(documentName):
-    return 'not_safe_to_work'
+    fileExtenstion = str(documentName)[-4:]
+
+    if fileExtenstion in ('xlsx','xlsm'):
+        return 'safe_to_work'
+    else:
+        return 'not_safe_to_work'
