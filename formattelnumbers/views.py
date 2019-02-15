@@ -55,19 +55,25 @@ def format_tel_numbers_input(request):
 
 
 def format_tel_numbers_upload(request):
+    document_user= ''
+    currentUser = request.user
     if request.method == 'POST':
         form = uploaded_documents_form(request.POST, request.FILES)
         if form.is_valid():
-          
+
             documentName = form['document'].value()
 
             isFileSafe = cleaningTelNumPreparation.checkIfFileIsSafe(documentName)
+            isFileSafe = 'safe_to_work'
 
             if (isFileSafe == 'not_safe_to_work'):
                 form = uploaded_documents_form()
 
             elif (isFileSafe == 'safe_to_work'):        
-                form.save()
+
+                newForm = form.save(commit=False) #save obj but not commit
+                newForm.document_user = request.user #save user id into document_user expanded form
+                newForm.save() #same as form.save()
 
                 theFile = openpyxl.load_workbook("media/format_tel_number/" + str(documentName))
                 allSheetNames = theFile.sheetnames
@@ -78,13 +84,12 @@ def format_tel_numbers_upload(request):
                     currentSheet = theFile[sheet]
                     specificCellLetter = (cleaningTelNumPreparation.find_specific_cell(currentSheet))
                     letter = cleaningTelNumPreparation.get_column_letter(specificCellLetter)
- 
-
                     cleaningTelNumPreparation.get_all_values_by_cell_letter(letter, currentSheet)
 
                 
                 theFile.save("media/format_tel_number/" + str(documentName))
             
+                #Downloading a file
                 test_file = open("media/format_tel_number/" + str(documentName), 'rb')
                 response = HttpResponse(content=test_file)
                 response['Content-Type'] = 'xlsx'
