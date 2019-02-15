@@ -55,8 +55,6 @@ def format_tel_numbers_input(request):
 
 
 def format_tel_numbers_upload(request):
-    document_user= ''
-    currentUser = request.user
     if request.method == 'POST':
         form = uploaded_documents_form(request.POST, request.FILES)
         if form.is_valid():
@@ -70,7 +68,8 @@ def format_tel_numbers_upload(request):
                 form = uploaded_documents_form()
 
             elif (isFileSafe == 'safe_to_work'):        
-
+                
+                #expaning and then saving form var.
                 newForm = form.save(commit=False) #save obj but not commit
                 newForm.document_user = request.user #save user id into document_user expanded form
                 newForm.save() #same as form.save()
@@ -86,7 +85,7 @@ def format_tel_numbers_upload(request):
                     letter = cleaningTelNumPreparation.get_column_letter(specificCellLetter)
                     cleaningTelNumPreparation.get_all_values_by_cell_letter(letter, currentSheet)
 
-                
+                #saving a file
                 theFile.save("media/format_tel_number/" + str(documentName))
             
                 #Downloading a file
