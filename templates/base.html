@@ -32,12 +32,17 @@
                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li class="nav-header">Free tools</li>
                             <li><a href="{% url 'mergetextinput' %}">Merge text lines</a></li>
-                            <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers Sweden Edition</a></li>
+                            <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers SE Edition</a></li>
                             <li class="divider"></li>
-                            <li class="nav-header">Working on...</li>
-                            <li><a href="#">Format telephone numbers World edition</a></li>
-                        </ul>
+                            <li class="nav-header">Paid tools</li>
+                            {% if user.is_authenticated %}
+                              <li><a href="{% url 'formattelnumbersupload' %}">Format telephone numbers with Excel, SE Edition</a></li>
+                            {% else %}
+                              <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers with Excel, SE Edition</a></li>
+                            {% endif %}
+                          </ul>
                     </li>
                   </ul>  
                       <ul class="nav pull-right"> 
