@@ -104,3 +104,10 @@ def format_tel_numbers_upload(request):
         'form': form
     })
 
+
+
+def render_formatTelNumbersUpload_description_page(request):
+    return render(
+    request,
+    'toolDescriptionPages/formattelnumuploaddesc.html'
+)

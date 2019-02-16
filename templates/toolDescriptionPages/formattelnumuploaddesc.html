@@ -1,0 +1,47 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Support{% endblock %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="content">        
+                    
+                        <div class="content">
+                            <div class="module">
+                                <div class="module-head">
+                                    <h2>Description of Formatting telephone numbers from Excel, SE edition</h2>
+                                </div>
+                                <div class="module-body">
+                                    <section class="docs">
+                                        <h3>Introduction</h3>
+                                        <p>To use this tool it is required for you to login. Please login now. <br/><br/>
+                                            This tool allows you to upload an Excel file and donwload a processed Excel file that will contain telephone numbers in a Swedish format.</p> 
+                    
+                                    </section> 
+                                    <section class="docs">
+                                            <h3>Hot to use & Functionalities</h3>
+                                            To use Formatting of thephone numbers with Excel you need to upload an Excel file in format xlsx that contains a column name telephone.
+                                            In the telephone colum there should be telephone numbers.
+                                            Tool will read telephone numbers from telephone column and if needed modify them to fit Swedish Telephone Format.                   
+                                    </section>  
+                                </div>                               
+                            </div>
+                        </div>
+                        
+                    <!--/.span12-->
+                                  
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/.span9-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<!--/.wrapper-->
+
+
+{% endblock %}
