@@ -376,7 +376,7 @@ box-shadow: 0 4px 4px rgba(0,0,0,.08);
 	font-size: 36px;
 	line-height: 36px;
 	height: 36px;
-	color: #29b7d3;
+	color: #830b0b;
 	-webkit-transition: all .2s ease-in-out;
 -moz-transition: all .2s ease-in-out;
 transition: all .2s ease-in-out;
@@ -541,7 +541,7 @@ transition: all .2s ease-in-out;
 }
 .btn-info {
 	color: #fff;
-	background-color: #29b7d3;
+	background-color: #830b0b;
 	border-color: #25a4be
 }
 .btn-info.active, .btn-info:active, .btn-info:focus, .btn-info:hover, .open>.btn-info.dropdown-toggle {
@@ -553,11 +553,11 @@ transition: all .2s ease-in-out;
 	background-image: none
 }
 .btn-info.disabled, .btn-info.disabled.active, .btn-info.disabled:active, .btn-info.disabled:focus, .btn-info.disabled:hover, .btn-info[disabled], .btn-info[disabled].active, .btn-info[disabled]:active, .btn-info[disabled]:focus, .btn-info[disabled]:hover, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info.active, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info:hover {
-	background-color: #29b7d3;
+	background-color: #830b0b;
 	border-color: #25a4be
 }
 .btn-info .badge {
-	color: #29b7d3;
+	color: #830b0b;
 	background-color: #fff
 }
 .btn-warning {
@@ -1247,7 +1247,7 @@ border-top-left-radius: 3px;
 	padding: 0
 }
 .message .table-message thead tr.heading td, .message .table-message tbody tr.heading td {
-	background: #29b7d3!important;
+	background: #830b0b!important;
 	font-weight: bold;
 	border: 0;
 }
