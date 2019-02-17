@@ -34,7 +34,7 @@
                             <li><a href="{% url 'mergetextinput' %}">Merge text lines</a></li>
                             <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers SE Edition</a></li>
                             <li class="divider"></li>
-                            <li class="nav-header">Paid tools</li>
+                            <li class="nav-header">Locked tools</li>
                             {% if user.is_authenticated %}
                               <li><a href="{% url 'formattelnumbersupload' %}">Format telephone numbers with Excel, SE Edition</a></li>
                             {% else %}
@@ -69,7 +69,6 @@
                                     <li><a href="{% url 'logout' %}">Logout</a></li>
                                   {% else %}
                                     <li><a href="{% url 'login' %}">Login</a></li>
-                                    <li><a href="{% url 'signup' %}">Signup</a></li>
                                   {% endif %}
 
                                   
