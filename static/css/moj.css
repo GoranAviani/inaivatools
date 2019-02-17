@@ -35,3 +35,9 @@
 .incodaqColor i {
   color: #830b0b;
 }
+html, body {
+  height: 98%;
+  width: 100%;
+  margin: 0px 0px 20px 0px;
+  display: table;
+}
