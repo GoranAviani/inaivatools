@@ -5,39 +5,46 @@
 
 {% block content %}
 
-
-
-<div class="page-content container">
-  
-    <div class="col-lg-4 col-lg-offset-4">
-      <div class="login-wrapper">
-            <div class="box">
-                <div class="content-wrap">
-                    <h3>Sign In</h3>
-                    <div class="social">
-                      <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="action">
-                        <button type="submit" class="btn btn-primary signup">Sign in</button>                    
-                      </form>                    
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="module module-login span4 offset4">
+        <form class="form-vertical" method="post">
+            {% csrf_token %}
+          <div class="module-head">
+            <h3>Sign In</h3>
+          </div>                        
+                  
+          <div class="module-body">
+            <div class="control-group">
+              <div class="controls row-fluid">
+                  <label class="control-label span12" for="basicinput">Username:</label>
+                  <div class="controls">
+                      {{form.username}}
                   </div>
-                    </div>                
-                </div>
-            </div>          
-        </div>
- 
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                  <label class="control-label span12" for="basicinput">Password:</label>
+                  <div class="controls">
+                      {{form.password}}
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="module-foot">
+            <div class="control-group">
+              <div class="controls clearfix">
+                <button type="submit" class="btn btn-primary pull-right">Sign in</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-
-
-
-
-
-
-
-
-
-
+</div><!--/.wrapper-->
 
 
 {% endblock %}
