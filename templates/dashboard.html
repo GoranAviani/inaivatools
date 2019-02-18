@@ -5,54 +5,62 @@
 
 {% block content %}
 
-
 <div class="wrapper">
     <div class="container">
         <div class="row">
-            
-
-            <!--/.span3-->
             <div class="span12">
-                <div class="content">
-                    <div class="btn-controls">
-                        <div class="btn-box-row row-fluid">
-                            <a href="{% url 'formattelnumbersupload' %}" class="btn-box big span4"><i class="icon-user"></i><b>Format telephone numbers - Excel SE</b>
-                                <p class="text-muted">
-                                    Remove non-locally-standardized characters and formats</p>
-                            </a>
+                <div class="content">                 
+                    <div class="module">
+                        <div class="module-head">
+                            <h2>Locked tools</h2>
                         </div>
-                        
-                    </div>
-                    <!--/#btn-controls-->
-
-                </div>
-                <!--/.content-->
-            
-            <!--/.span9-->
+                        <div class="module-body">                                   
+                            <div class="content">
+                                <div class="btn-controls">
+                                    <div class="btn-box-row row-fluid">
+                                        <a href="{% url 'formattelnumbersupload' %}" class="btn-box big span4"><i class="icon-user"></i><b>Format telephone numbers - Excel SE</b>
+                                            <p class="text-muted">
+                                                Remove non-locally-standardized characters and formats
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div><!--/#btn-controls-->  
+                            </div>
+                        </div>     
+                    </div>     
+                </div> <!--/.content-->      
+            </div> <!--/.span12-->       
         </div>
-    </div>
+    </div> <!--/.container--> 
     
-    <div class="row">
-        <div class="span12">
-            <div class="content">
-                <div class="btn-controls">
-                    <div class="btn-box-row row-fluid">
-                        <a href="{% url 'mergetextinput' %}" class="btn-box big span4"><i class=" icon-random"></i><b>Merge Text Lines</b>
-                            <p class="text-muted">Line break and newline remover</p>
-                        </a>
-                        <a href="{% url 'formattelnumbers' %}" class="btn-box big span4"><i class="icon-certificate"></i><b>Format telephone numbers - SE</b>
-                            <p class="text-muted">Remove non-Swedish-standard characters and formats</p>
-                        </a>
-                    </div>
-
-                </div>
-                <!--/#btn-controls-->  
-            </div>
-            <!--/.content-->
+    
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="content">                 
+                    <div class="module">
+                        <div class="module-head">
+                            <h2>Free tools</h2>
+                        </div>
+                        <div class="module-body">                                   
+                            <div class="content">
+                                <div class="btn-controls">
+                                    <div class="btn-box-row row-fluid">
+                                        <a href="{% url 'mergetextinput' %}" class="btn-box big span4"><i class=" icon-random"></i><b>Merge Text Lines</b>
+                                            <p class="text-muted">Line break and newline remover</p>
+                                        </a>
+                                        <a href="{% url 'formattelnumbers' %}" class="btn-box big span4"><i class="icon-certificate"></i><b>Format telephone numbers - SE</b>
+                                            <p class="text-muted">Remove non-Swedish-standard characters and formats</p>
+                                        </a>
+                                    </div>
+                                </div><!--/#btn-controls-->  
+                            </div>
+                        </div>     
+                    </div>     
+                </div> <!--/.content-->      
+            </div> <!--/.span12-->       
         </div>
-        <!--/.span9-->
-    </div>
-    <!--/.container-->
-</div>
-<!--/.wrapper-->
+    </div> <!--/.container-->
+</div> <!--/.wrapper-->
+
 {% endblock %}
