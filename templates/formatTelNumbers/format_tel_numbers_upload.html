@@ -5,11 +5,11 @@
     <div class="well  normal-center-container">
         <h2>Format telephone numbers - Swedish edition</h2>            
         <form method="post" enctype="multipart/form-data" class="form-horizontal row-fluid">
-            {% csrf_token %}
+            {% csrf_token %}</br></br>
             <div class="control-group">
                 <label class="control-label" for="basicinput">Description:</label>
                 <div class="controls">
-                    {{form.description}}
+                    {{form.description}} (not required)
                 </div>
             </div>
             <div class="control-group">
@@ -18,14 +18,14 @@
                     {{form.document}}
                 </div>
           </div>
-        </br>
+        </br></br></br>
             <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-large btn-primary">Upload</button>    
+                    <button type="submit" class="btn textSize20px btn-primary">Upload</button>    
             </div>                 
         </form>
-    </br>
+    </br></br>
         <div class="d-flex justify-content-center">
-            <p><a href="{% url 'index' %}" class="btn btn-large btn-primary">Return to dashboard</a></p>       
+            <p><a href="{% url 'index' %}" class="btn textSize20px btn-primary">Return to dashboard</a></p>       
         </div>    
     </div>
 </div>
