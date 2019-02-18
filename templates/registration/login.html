@@ -1,33 +1,50 @@
 <!-- templates/registration/login.html -->
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Login - Incodaq Tools{% endblock %}
 
 {% block content %}
 
-<div class="container">
-  <div class="well  normal-center-container">
-      <h2>Login</h2>            
-      <form method="post" enctype="multipart/form-data" class="form-horizontal row-fluid">
-          {% csrf_token %}
-          <div class="control-group">
-              <label class="control-label" for="basicinput">Description:</label>
-              <div class="controls">
-                  {{form.username}}
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="module module-login span4 offset4">
+        <form class="form-vertical" method="post">
+            {% csrf_token %}
+          <div class="module-head">
+            <h3>Sign In</h3>
+          </div>                        
+                  
+          <div class="module-body">
+            <div class="control-group">
+              <div class="controls row-fluid">
+                  <label class="control-label span12" for="basicinput">Username:</label>
+                  <div class="controls">
+                      {{form.username}}
+                  </div>
               </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                  <label class="control-label span12" for="basicinput">Password:</label>
+                  <div class="controls">
+                      {{form.password}}
+                  </div>
+              </div>
+            </div>
           </div>
-          <div class="control-group">
-              <label class="control-label" for="basicinput">Upload file:</label>
-              <div class="controls">
-                  {{form.password}}
+          <div class="module-foot">
+            <div class="control-group">
+              <div class="controls clearfix">
+                <button type="submit" class="btn btn-primary pull-right">Sign in</button>
               </div>
-        </div>
-          <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-large btn-primary">Login</button>    
-          </div>                 
-      </form>    
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
+</div><!--/.wrapper-->
 
 
 {% endblock %}

@@ -94,6 +94,10 @@ def format_tel_numbers_upload(request):
                 response['Content-Type'] = 'xlsx'
                 response['Content-Disposition'] = 'attachment; filename="%s"' \
                                                 % (documentName) #public name
+
+                import os
+                from django.conf import settings
+                os.remove(os.path.join(settings.MEDIA_ROOT, "format_tel_number/" + str(documentName)))                                
                 return response
                 #return redirect('formattelnumbersupload')
             else:
@@ -104,3 +108,10 @@ def format_tel_numbers_upload(request):
         'form': form
     })
 
+
+
+def render_formatTelNumbersUpload_description_page(request):
+    return render(
+    request,
+    'toolDescriptionPages/formattelnumuploaddesc.html'
+)

@@ -1,6 +1,6 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
-{% block title %}Support{% endblock %}
+{% block title %}Support - Incodaq Tools{% endblock %}
 {% block content %}
 
 <div class="wrapper">
@@ -17,14 +17,44 @@
                                 <div class="module-body">
                                     <section class="docs">
                                         <h3>Introduction</h3>
-                                        <p>Inaiva Tools <strong>support</strong> is here to help. <br/><br/>
-                                            Learn more about popular topics and find resources that will help you with all of your Inaiva tools.</p>     
+                                        <p><strong>Incodaq Tools support</strong> is here to help. <br/><br/>
+                                            Learn more about popular topics and find resources that will help you with all of your Incodaq tools.</p>     
                                     </section> 
                                     <section class="docs">
                                             <h3>Hot to use & Functionalities</h3>
-                                            There are two types of tools on Inaiava Tools: Free tools you can access on 
-                                            the <a href="{% url 'index' %}" class="">Home page</a>
-                                            and Paid tools where you must have a <a href="{% url 'login' %}" class=""> Login</a> to use .      
+                                            There are two types of tools here on Incodaq Tools: Free tools you can access by going to 
+                                            <a href="{% url 'index' %}" class="">Home page</a>
+                                            and Locked tools where you are required to <a href="{% url 'login' %}" class=""> Sign in</a> to be able to use.
+                                            <br/><br/>
+                                            Locked tools are intended to be used by a small group of people to help them in their daily business routines. Therefore, that means there is no open registraion available.
+                                            <br/>
+                                            But don't despair, if you would like to use locked tools feel free to contact me via email provided on the support page!                                            <br/><br/>
+                                            <br/><br/>
+                                            <h3>List of tools</h3>
+                                            <p>
+                                                1. Merge tool <br/>
+                                                2. Format telephone numbers - Swedish edition<br/>
+                                                3. Format telephone numbers from Excel - Swedish edition (Locked tool)<br/>
+                                            </p>
+
+                                            <h3>Tool description</h3>
+                                            <p>
+                                                    <strong>Merge text lines tool</strong> <br/>
+                                                    Merge text lines tool is used for merging several rows into one row joined by symbols or characters of your choice.
+                                                
+                                            </p>
+
+                                            <p>
+                                                    <strong>Format telephone numbers - Swedish edition</strong> <br/>
+                                                    Format telephone numbers - Swedish edition is used to fix and modify telephone numbers to fit into standard Swedish telephone number format.           
+                                            </p>
+
+                                            <p>
+                                                    <strong>Formatting telephone numbers from Excel, SE edition</strong> <br/>
+                                                    Formatting telephone numbers from Excel, SE edition - does all the things just as the tool above but with the convenience of uploading an Excel file 
+                                                    where telephone numbers from the column telephone will be standardizd to Swedish telephone standard. The fixed file will be available for download and any data from the file and the file uploaded will be automatically deleted according to GDPR rules.          
+                                            </p>
+                                            
                                     </section>  
                                 </div>                               
                             </div>
@@ -32,26 +62,20 @@
                         
                     <!--/.span12-->
                             
-                       
-
-
-
-                    
+                           
                         <div class="btn-box-row row-fluid">
                             <div class="span12">
                                 <div class="row-fluid">
                                     <div class="span12">
-                                        <a href="#" class="btn-box small span4"><i class="icon-envelope"></i><b>Email</b>
-                                        </a><a href="#" class="btn-box small span4"><i class="icon-group"></i><b>Linkedin</b>
-                                        </a><a href="#" class="btn-box small span4"><i class="icon-save"></i><b>Github</b>
+                                        <a href="mailto: goran.aviani@gmail.com" class="btn-box small span3"><i class="icon-envelope"></i><b>Email</b>
+                                        </a><a href="https://se.linkedin.com/in/goran-aviani" class="btn-box small span3"><i class="icon-group"></i><b>Linkedin</b>
+                                        </a><a href="https://github.com/GoranAviani" class="btn-box small span3"><i class="icon-save"></i><b>Github</b>
                                         </a>
+                                        <a href="https://medium.com/@goranaviani" class="btn-box small span3"><i class="icon-pencil"></i><b>Medium articles</b></a>
+                                        
                                     </div>
                                 </div>
-                                <div class="row-fluid">
-                                    <div class="span12">
-                                        <a href="#" class="btn-box small span4"><i class="icon-pencil"></i><b>Medium articles</b></a>
-                                    </div>
-                                </div>
+                               
                             </div>
                             
                         </div>

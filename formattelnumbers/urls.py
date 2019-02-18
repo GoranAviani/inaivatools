@@ -9,6 +9,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('formattelnumbers/', views.format_tel_numbers_input, name='formattelnumbers'),
     path('formattelnumbersupload/', views.format_tel_numbers_upload, name='formattelnumbersupload'),
+    path('formattelnumbersuploaddesc/', views.render_formatTelNumbersUpload_description_page, name='FormatTelNumExcelSEtPage'),
+
 
 ]
 

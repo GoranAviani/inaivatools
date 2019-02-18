@@ -1,0 +1,47 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Description - Incodaq Tools{% endblock %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="content">        
+                    
+                        <div class="content">
+                            <div class="module">
+                                <div class="module-head">
+                                    <h2>Description of Formatting telephone numbers from Excel, SE edition</h2>
+                                </div>
+                                <div class="module-body">
+                                    <section class="docs">
+                                        <h3>Introduction</h3>
+                                        <p>To use this tool it is required for you to sign in. Please sign in now. <br/><br/>
+                                            This tool allows you to upload an Excel file and download a processed Excel file that will fix and standardize telephone numbers to Swedish format.</p> 
+                    
+                                    </section> 
+                                    <section class="docs">
+                                            <h3>Hot to use & Functionalities</h3>
+                                            To use Formatting of thephone numbers with Excel you need to upload an Excel file in format xlsx that contains a column name telephone.
+                                            In the telephone colum there should only be telephone numbers.
+                                            This tool will read telephone numbers from telephone column and if needed modify and correct them to fit a Swedish Telephone Numbers Format.                   
+                                    </section>  
+                                </div>                               
+                            </div>
+                        </div>
+                        
+                    <!--/.span12-->
+                                  
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/.span9-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<!--/.wrapper-->
+
+
+{% endblock %}

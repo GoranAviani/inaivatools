@@ -12,3 +12,32 @@
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
+
+
+.heigh100perc{
+  height: 100%;
+}
+.center-text{
+  text-align: center;
+}
+.right-text{
+  text-align: right;
+}
+
+
+.navLogo {
+	width: 120px;
+	height: 34px;
+	margin: -7px 5px 0 0;
+
+}
+
+.incodaqColor i {
+  color: #830b0b;
+}
+html, body {
+  height: 98%;
+  width: 100%;
+  margin: 0px 0px 20px 0px;
+  display: table;
+}

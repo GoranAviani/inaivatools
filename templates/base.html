@@ -5,7 +5,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  <title>{% block title %}Incodaq Tools{% endblock %}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
@@ -20,44 +20,34 @@
           <div class="navbar-inner">
               <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">  
-                    <i class="icon-reorder shaded"></i></a><a class="brand" href="{% url 'index' %}">Inaiva Tools </a>
+                    <i class="icon-reorder shaded"></i></a><a class="brand" href="{% url 'index' %}"><img src="{% static "images/incodaqtoolslight.png" %}" class="navLogo" /> </a>
                   
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                       <ul class="nav nav-icons">
-                          <li><a href="#"><i class="icon-envelope"></i></a></li>
-                          <li><a href="#"><i class="icon-eye-open"></i></a></li>
-                          <li><a href="#"><i class="icon-bar-chart"></i></a></li>
+                          <li><a href="#"></i></a></li> 
                     
                       
                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li class="nav-header">Free tools</li>
                             <li><a href="{% url 'mergetextinput' %}">Merge text lines</a></li>
-                            <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers Sweden Edition</a></li>
+                            <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers SE Edition</a></li>
                             <li class="divider"></li>
-                            <li class="nav-header">Working on...</li>
-                            <li><a href="#">Format telephone numbers World edition</a></li>
-                        </ul>
+                            <li class="nav-header">Locked tools</li>
+                            {% if user.is_authenticated %}
+                              <li><a href="{% url 'formattelnumbersupload' %}">Format telephone numbers with Excel, SE Edition</a></li>
+                            {% else %}
+                              <li><a href="{% url 'FormatTelNumExcelSEtPage' %}">Format telephone numbers with Excel, SE Edition</a></li>
+                            {% endif %}
+                          </ul>
                     </li>
                   </ul>  
                       <ul class="nav pull-right"> 
-                          {% if user.is_authenticated %}
-                          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown PRIVATE
-                            <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Item No. 1</a></li>
-                                <li><a href="#">Don't Click</a></li>
-                                <li class="divider"></li>
-                                <li class="nav-header">Example Header</li>
-                                <li><a href="#">A Separated link</a></li>
-                            </ul>
-                          </li>
-                          {% endif %}
-
-
-
-                          <li><a href="{% url 'supportPage' %}">Support<i class="icon-wrench"></i> </a></li>
-
+                         
+                          <li><a href="{% url 'supportPage' %}" class="incodaqColor">Support<i class="icon-wrench "></i> </a></li>
+                          
+                                
 
                         <li>
                           {% if user.is_authenticated %}
@@ -80,7 +70,6 @@
                                     <li><a href="{% url 'logout' %}">Logout</a></li>
                                   {% else %}
                                     <li><a href="{% url 'login' %}">Login</a></li>
-                                    <li><a href="{% url 'signup' %}">Signup</a></li>
                                   {% endif %}
 
                                   
@@ -102,7 +91,7 @@
 
   <div class="footer">
     <div class="container">
-        <b class="copyright">&copy; 2019 Goran Aviani </b>All rights reserved.
+        <b class="copyright">Made with <i class="icon-heart"></i> by <a href="https://se.linkedin.com/in/goran-aviani">Goran Aviani</a>  </b>
     </div>
 </div>
 <script src="{% static 'scripts/jquery-1.9.1.min.js' %}"></script>
