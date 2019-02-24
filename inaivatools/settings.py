@@ -25,7 +25,7 @@ SECRET_KEY = 'ld-5bmh8$0evt*r5$$*_u@atk6(zx+)m)%gm%m1hp45o$gjtv3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.tools.incodaq.com','tools.incodaq.com','68.183.73.78','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '207.154.245.106', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -128,16 +128,19 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
+#for local uncomment for production comment
+#STATICFILES_DIRS = (
+#   os.path.join(BASE_DIR, 'static'),
+#)
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'allstaticfiles')
-
+#for production uncomment, por local comment
+#STATIC_ROOT = os.path.join(BASE_DIR, 'allstaticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
