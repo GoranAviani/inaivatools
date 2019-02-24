@@ -7,13 +7,13 @@ FROM python:3.6
 ENV PYTHONUNBUFFERED 1
 
 # create root directory for our project in the container
-RUN mkdir /inaiva_tools
+RUN mkdir /incodaq_tools
 
-# Set the working directory to /music_service
-WORKDIR /inaiva_tools
+# Set the working directory to /incodaq_tools
+WORKDIR /incodaq_tools
 
-# Copy the current directory contents into the container at /music_service
-ADD . /inaiva_tools/
+# Copy the current directory contents into the container at /incodaq_tools
+ADD . /incodaq_tools/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
