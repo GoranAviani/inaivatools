@@ -8,4 +8,4 @@ services:
     volumes:
       - .:/incodaq_tools
     ports:
-- "8000:8000"
+      - "8000:8000"
