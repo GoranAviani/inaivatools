@@ -1,2 +1,4 @@
 db.inaivatools
 *.pyc
+.idea
+.vscode
