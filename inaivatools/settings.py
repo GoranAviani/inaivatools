@@ -134,7 +134,7 @@ STATICFILES_DIRS = (
 )
 
 #for production uncomment, por local comment
-#STATIC_ROOT = os.path.join(BASE_DIR, 'allstaticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'allstaticfiles')
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
