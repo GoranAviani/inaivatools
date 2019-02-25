@@ -34,4 +34,4 @@ urlpatterns = [
     path('support/', views.render_support_page, name='supportPage'),
 
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
