@@ -140,7 +140,7 @@ LOGOUT_REDIRECT_URL = 'index'
 #for deployment comment for local uncomment:
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'allstaticfiles'),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 #added for static files
 
