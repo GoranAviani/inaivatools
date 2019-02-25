@@ -10,10 +10,10 @@ def index(request):
         return render(request,'index.html')
 
 def dashboard(request):
-    return render(
-    request,
-    'dashboard.html'
-)
+    if request.user.is_authenticated:
+        return render(request,'dashboard.html')
+    else:
+        return render (request,'index.html')
 
 def render_support_page(request):
     return render(
