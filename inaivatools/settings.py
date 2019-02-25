@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -126,7 +126,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
@@ -137,13 +137,16 @@ LOGOUT_REDIRECT_URL = 'index'
 #for production uncomment, por local comment
 #STATIC_ROOT = os.path.join(BASE_DIR, 'allstaticfiles')
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
 #added for static files ->
 #for deployment comment for local uncomment:
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 #STATICFILES_DIRS = (
-#    os.path.join(PROJECT_ROOT, 'static'),
+#    os.path.join(PROJECT_ROOT, 'static_files'),
 #)
 #added for static files
+
 
 
 
