@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ld-5bmh8$0evt*r5$$*_u@atk6(zx+)m)%gm%m1hp45o$gjtv3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '207.154.245.106', '127.0.0.1', 'localhost']
 
@@ -131,22 +131,11 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 #for local uncomment for production comment
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-#for production uncomment, por local comment
-#STATIC_ROOT = os.path.join(BASE_DIR, 'allstaticfiles')
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
-
-#added for static files ->
-#for deployment comment for local uncomment:
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-#STATICFILES_DIRS = (
-#    os.path.join(PROJECT_ROOT, 'static'),
-#)
-#added for static files
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-
+#for local comment for production uncomment
+#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 
 MEDIA_URL = '/media/'
