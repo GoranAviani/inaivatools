@@ -25,7 +25,7 @@ SECRET_KEY = 'ld-5bmh8$0evt*r5$$*_u@atk6(zx+)m)%gm%m1hp45o$gjtv3'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '207.154.245.106', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '68.183.216.61', '127.0.0.1', 'localhost']
 
 
 # Application definition
