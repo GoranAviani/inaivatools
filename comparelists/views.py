@@ -2,6 +2,25 @@ from django.shortcuts import render
 from .forms import compare_lists_input_form
 
 
+def process_comparison_of_lists(inputList1, inputList2):
+
+    # foundInList1 = []
+    foundInList2 = []
+    # missingInList1 = []
+    missingInList2 = []
+
+    for x in inputList1: #for every x in list 1
+        if x in inputList2: # find it in list 2 and save in found 1
+            foundInList2.append(x)
+        else: # if x in not found in list 2 save it in missing 2
+            missingInList2.append(x)
+
+
+    return foundInList2, missingInList2
+
+
+
+
 # Create your views here.
 def compare_lists(request):
     
@@ -28,7 +47,8 @@ def compare_lists(request):
             inputList2 = list(inputList2.split(","))
             
             #Process the lists and get the result
-             
+            foundInList2, missingInList2 = process_comparison_of_lists(inputList1, inputList2)
+
             
             #Display the result data
             data = {'inputText1': originalInputList1, 'inputText2': originalInputList2, 'resultFoundInList2': foundInList2, 'resultMissingInList2': missingInList2}
