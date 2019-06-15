@@ -30,6 +30,8 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('merge/', include('mergetextlines.urls')),
     path('format/', include('formattelnumbers.urls')),
+    path('compare/', include('comparelists.urls')),
+
 
     path('support/', views.render_support_page, name='supportPage'),
 

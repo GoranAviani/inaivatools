@@ -1,0 +1,33 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+        <div class="well  normal-center-container">
+            <h2>Merge Text Lines</h2>            
+            <form method="post" class="form-horizontal row-fluid">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Input list 1:</label>
+                    <div class="controls">
+                        {{listsToCompare.inputList1}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Input list 2:</label>
+                    <div class="controls">
+                        {{listsToCompare.inputList2}}
+                    </div>
+                </div>
+            </br></br>  
+                <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary textSize20px">Join lines</button>    
+                      </div>                 
+            </form>
+        </br></br>
+        <div class="d-flex justify-content-center">
+            <p><a href="{% url 'index' %}" class="btn textSize20px btn-primary">Return to dashboard</a></p>       
+        </div>
+        </div>
+  </div>
+{% endblock %}

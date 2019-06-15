@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import compare_lists_input_form
 
 
 # Create your views here.
@@ -23,5 +24,5 @@ def compare_lists(request):
         textToJoin = merge_text_input_form()
         return render(request, 'mergeTextLines/mergelines.html', {'textToJoin': textToJoin})
     '''
-    textToJoin = merge_text_input_form()
-    return render(request, 'mergeTextLines/mergelines.html', {'textToJoin': textToJoin})
+    listsToCompare = compare_lists_input_form()
+    return render(request, 'compareLists/comparelists.html', {'listsToCompare': listsToCompare})
