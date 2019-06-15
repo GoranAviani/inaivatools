@@ -17,6 +17,10 @@ def compare_lists(request):
 
 ##            mergeBy = listsToCompare['joinBy'].value()
             
+            #for displaying as result:
+            originalInputList1 = inputList1
+            originalInputList2 = inputList2
+
             #replacing \r\n with a "," character and then create lists from inputLists strings
             inputList1 = inputList1.replace("\r\n", ",")
             inputList2 = inputList2.replace("\r\n", ",")
@@ -27,7 +31,7 @@ def compare_lists(request):
              
             
             #Display the result data
-            data = {'inputText1': inputList1, 'inputText2': inputList2, 'resultFoundInList2': foundInList2, 'resultMissingInList2': missingInList2}
+            data = {'inputText1': originalInputList1, 'inputText2': originalInputList2, 'resultFoundInList2': foundInList2, 'resultMissingInList2': missingInList2}
             listsToCompare = compare_lists_input_form(initial=data)
             
             return render(request, 'compareLists/comparelists.html', {'listsToCompare': listsToCompare})
