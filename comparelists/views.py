@@ -1,6 +1,21 @@
 from django.shortcuts import render
 from .forms import compare_lists_input_form
 
+def display_results_in_rows(foundInList2, missingInList2):
+
+    forDisplayFoundInList2 = ""
+    forDisplayMissingInList2 = ""
+
+    for x in foundInList2:
+        addToResult = x+"\r\n"
+        forDisplayFoundInList2 += addToResult 
+    for x in missingInList2:
+        addToResult = x+"\r\n"
+        forDisplayMissingInList2 += addToResult
+
+
+    return forDisplayFoundInList2, forDisplayMissingInList2
+
 
 def process_comparison_of_lists(inputList1, inputList2):
 
@@ -15,8 +30,9 @@ def process_comparison_of_lists(inputList1, inputList2):
         else: # if x in not found in list 2 save it in missing 2
             missingInList2.append(x)
 
+    forDisplayFoundInList2, forDisplayMissingInList2 = display_results_in_rows(foundInList2, missingInList2)
 
-    return foundInList2, missingInList2
+    return forDisplayFoundInList2, forDisplayMissingInList2
 
 
 
