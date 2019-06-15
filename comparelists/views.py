@@ -12,7 +12,8 @@ def compare_lists(request):
 
             inputList1 = listsToCompare['inputText1'].value()
             inputList2 = listsToCompare['inputText2'].value()
-            listDifferences = ""
+            foundInList2 = ""
+            missingInList2 = ""
 
 ##            mergeBy = listsToCompare['joinBy'].value()
             
@@ -26,7 +27,7 @@ def compare_lists(request):
              
             
             #Display the result data
-            data = {'inputText1': inputList1, 'inputText2': inputList2, 'listDifferences': listDifferences}
+            data = {'inputText1': inputList1, 'inputText2': inputList2, 'resultFoundInList2': foundInList2, 'resultMissingInList2': missingInList2}
             listsToCompare = compare_lists_input_form(initial=data)
             
             return render(request, 'compareLists/comparelists.html', {'listsToCompare': listsToCompare})
