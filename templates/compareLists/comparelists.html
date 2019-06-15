@@ -4,42 +4,42 @@
 {% block content %}
   <div class="container">
         <div class="well  normal-center-container">
-            <h2>Merge Text Lines</h2>            
+            <h2>Compare two lists</h2>            
             <form method="post" class="form-horizontal row-fluid">
                 {% csrf_token %}
-                <div class="control-group">
-                    <label class="control-label" for="basicinput">Input list 1:</label>
-                    <div class="controls">
+                <div class="compare-lists-inputs margin-bottom-40">  
+                    <div class="compare-lists-box margin-right-40">  
+                        Input list 1:
                         {{listsToCompare.inputText1}}
                     </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="basicinput">Input list 2:</label>
-                    <div class="controls">
+                    <div class="compare-lists-box">  
+                        Input list 2: 
                         {{listsToCompare.inputText2}}
-                    </div>
+                    </div>    
                 </div>
-                <div class="control-group">
-                    <label class="control-label" for="basicinput">foundInList2:</label>
-                    <div class="controls">
-                        {{listsToCompare.resultFoundInList2}}
+                
+
+                    <div class="compare-lists-inputs">  
+                            <div class="compare-lists-box margin-right-40">  
+                                Found in list 2:
+                                {{listsToCompare.resultFoundInList2}}
+                            </div>
+                            <div class="compare-lists-box">  
+                                Missing in list 2: 
+                                {{listsToCompare.resultMissingInList2}}
+                            </div>    
                     </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="basicinput">missingInList2:</label>
-                    <div class="controls">
-                        {{listsToCompare.resultMissingInList2}}
-                    </div>
-                </div>
+    
+
             </br></br>  
                 <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary textSize20px">Join lines</button>    
-                      </div>                 
+                    <button type="submit" class="btn btn-primary textSize20px">Compare lists</button>    
+                </div>                 
             </form>
         </br></br>
-        <div class="d-flex justify-content-center">
-            <p><a href="{% url 'index' %}" class="btn textSize20px btn-primary">Return to dashboard</a></p>       
-        </div>
+            <div class="d-flex justify-content-center">
+                <p><a href="{% url 'index' %}" class="btn textSize20px btn-primary">Return to dashboard</a></p>       
+            </div>
         </div>
   </div>
 {% endblock %}
