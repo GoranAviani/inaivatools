@@ -22,6 +22,13 @@ def turn_list_to_row(numberList):
     return rowTextData
 
 # Create your views here.
+def process_numbers(listTextData):    
+    listResult = []
+    for number in listTextData:
+        number = cleaningTelNumPreparation.fix_telephone_format(number)
+        listResult.append(number)
+    return listResult
+
 def format_tel_numbers_input(request):
     if request.method == 'POST':
         numbersToFormat = format_tel_numbers_input_form(request.POST)
@@ -33,10 +40,15 @@ def format_tel_numbers_input(request):
             #turn tel numbers into a list
             listTextData = turn_textdata_to_list(textdata)
 
-            listResult = []
-            for number in listTextData:
-                number = cleaningTelNumPreparation.fix_telephone_format(number)
-                listResult.append(number)
+            #Moving to separate function due to making apirelays app. This new app needs to get 
+            #to this part of te code. New solution is bellow
+            #listResult = []
+            #for number in listTextData:
+            #    number = cleaningTelNumPreparation.fix_telephone_format(number)
+            #    listResult.append(number)
+            ##New solution:
+            listResult = process_numbers(listTextData)
+
 
             #turn list into rows
             rowTextData = turn_list_to_row(listResult)
