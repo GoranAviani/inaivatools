@@ -16,11 +16,10 @@ class format_tel_numbers_api(APIView):
 
         listOfTelNumbers = telNumberList.split(",")
         listResult = process_numbers(listOfTelNumbers)
-        print(listResult)
+        #print(listResult)
 
-        
         listResultChar = ",".join(listResult)
-        print(listResultChar)
+        #print(listResultChar)
 
         data = {'responseMessage': "Success", "telCountry": telCountry, 'telNumberList': listResultChar}
         serializer = TelNumberSerializer(data=data)
