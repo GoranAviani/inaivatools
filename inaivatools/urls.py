@@ -35,5 +35,5 @@ urlpatterns = [
 
     path('support/', views.render_support_page, name='supportPage'),
 
-
+    path('api/v1/', include('apirelay.urls')),
 ]
