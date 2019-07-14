@@ -23,7 +23,7 @@ SECRET_KEY = 'ld-5bmh8$0evt*r5$$*_u@atk6(zx+)m)%gm%m1hp45o$gjtv3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '157.230.127.167', '127.0.0.1', 'localhost']
 
@@ -130,17 +130,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #for local comment, for production uncomment
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 #for local uncomment for production comment
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 #for local comment for production uncomment
-#PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 
 MEDIA_URL = '/media/'
