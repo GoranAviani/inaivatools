@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'expandeduser.apps.ExpandeduserConfig',
     'formattelnumbers',
     'openpyxl',
+
+    'rest_framework',
+    'apirelay',
 ]
 
 AUTH_USER_MODEL = 'expandeduser.custom_user'
@@ -127,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #for local comment, for production uncomment
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
