@@ -35,8 +35,7 @@ class format_tel_numbers_api(APIView):
     serializer_class = TelNumberSerializer
 
 
-    def get(self, request):
-      
+    def get(self, request):      
         listOfTelNumbers=[]
         telNumberList =""
         telCountry = request.data.get("telCountry")
@@ -44,8 +43,8 @@ class format_tel_numbers_api(APIView):
         print(telCountry)
         print(telNumberList)
 
-
-        listOfTelNumbers = telNumberList.split(",")
+        if telNumberList is not None:
+            listOfTelNumbers = telNumberList.split(",")
         listResult = process_numbers(listOfTelNumbers)
         print(listResult)
 
