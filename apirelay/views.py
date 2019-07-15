@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status    
 from apirelay.serializers import TelNumberSerializer
 from formattelnumbers.views import process_numbers
-
+"""
 class format_tel_numbers_api(APIView):
     serializer_class = TelNumberSerializer
 
@@ -27,3 +27,38 @@ class format_tel_numbers_api(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+"""
+
+ #if self.request.method == 'GET':
+
+class format_tel_numbers_api(APIView):
+    serializer_class = TelNumberSerializer
+
+
+    def get(self, request):
+      
+        listOfTelNumbers=[]
+        telNumberList =""
+        telCountry = request.data.get("telCountry")
+        telNumberList = request.data.get("telNumberList")
+        print(telCountry)
+        print(telNumberList)
+
+
+        listOfTelNumbers = telNumberList.split(",")
+        listResult = process_numbers(listOfTelNumbers)
+        print(listResult)
+
+        listResultChar = ",".join(listResult)
+        #print(listResultChar)
+
+        data = {'responseMessage': "Success", "telCountry": telCountry, 'telNumberList': listResultChar}
+        serializer = TelNumberSerializer(data=data)
+        if serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+    
