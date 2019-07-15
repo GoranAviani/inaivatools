@@ -38,7 +38,7 @@ class format_tel_numbers_api(APIView):
     def get(self, request):      
         
         listOfTelNumbers=[]
-        telNumberList =""
+        #telNumberList =""
         telCountry = {}
         telNumberList = {}
 
