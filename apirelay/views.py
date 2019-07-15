@@ -38,15 +38,19 @@ class format_tel_numbers_api(APIView):
     def get(self, request):      
         listOfTelNumbers=[]
         telNumberList =""
-        telCountry = request.data.get("telCountry")
-        telNumberList = request.data.get("telNumberList")
-        print(telCountry)
-        print(telNumberList)
+        
+        dict= request._request.GET #geting the data from QueryDict
+        dict = dict.dict() #QueryDict to Python dict
+        #print("EVOOOO "+ str(dict))
+        telCountry = dict["telCountry"]
+        telNumberList = dict["telNumberList"]
+        #print(telCountry)
+        #print(telNumberList)
 
         if telNumberList is not None:
             listOfTelNumbers = telNumberList.split(",")
         listResult = process_numbers(listOfTelNumbers)
-        print(listResult)
+        #print(listResult)
 
         listResultChar = ",".join(listResult)
         #print(listResultChar)
