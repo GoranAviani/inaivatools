@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status    
 from apirelay.serializers import TelNumberSerializer
 from formattelnumbers.views import process_numbers
+from apirelay import dataProcessing
 """
 class format_tel_numbers_api(APIView):
     serializer_class = TelNumberSerializer
@@ -31,6 +32,8 @@ class format_tel_numbers_api(APIView):
 
  #if self.request.method == 'GET':
 
+
+
 class format_tel_numbers_api(APIView):
     serializer_class = TelNumberSerializer
 
@@ -47,9 +50,20 @@ class format_tel_numbers_api(APIView):
         #print("EVOOOO "+ str(dict))
         if bool(dict) is not False: # is dict is not empty then look for these fields
             telCountry = dict["telCountry"]
+
+             
+
             telNumberList = dict["telNumberList"]
             listOfTelNumbers = telNumberList.split(",")
-        
+            
+            result = dataProcessing.check_country_code(telCountry)
+            if result == "non_existing_country":
+                data = {'responseMessage': "Failure", "telCountry": "Unknown country code", 'telNumberList': ""}
+                serializer = TelNumberSerializer(data=data)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            
+
+
         listResult = process_numbers(listOfTelNumbers)
         #print(listResult)
 
