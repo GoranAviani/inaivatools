@@ -58,10 +58,11 @@ class format_tel_numbers_api(APIView):
             
             result = dataProcessing.check_country_code(telCountry)
             if result == "non_existing_country":
-                data = {'responseMessage': "Failure", "telCountry": "Unknown country code", 'telNumberList': ""}
+                data = {'responseMessage': "Failure. Unknown country", "telCountry": "Unknown country code", 'telNumberList': "This field may not be blank."}
                 serializer = TelNumberSerializer(data=data)
-                return Response(serializer.data, status=status.HTTP_200_OK)
-            
+                if serializer.is_valid():
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                
 
 
         listResult = process_numbers(listOfTelNumbers)
