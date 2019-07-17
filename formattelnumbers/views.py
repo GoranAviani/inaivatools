@@ -22,10 +22,10 @@ def turn_list_to_row(numberList):
     return rowTextData
 
 # Create your views here.
-def process_numbers(listTextData):    
+def process_numbers(listTextData, telCountry = None):    
     listResult = []
     for number in listTextData:
-        number = cleaningTelNumPreparation.fix_telephone_format(number)
+        number = cleaningTelNumPreparation.fix_telephone_format(number, telCountry)
         listResult.append(number)
     return listResult
 

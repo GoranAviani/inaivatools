@@ -65,7 +65,7 @@ class format_tel_numbers_api(APIView):
                 
 
         #Caling a view from another app
-        listResult = process_numbers(listOfTelNumbers)
+        listResult = process_numbers(listOfTelNumbers, telCountry)
         #print(listResult)
 
         listResultChar = ",".join(listResult)

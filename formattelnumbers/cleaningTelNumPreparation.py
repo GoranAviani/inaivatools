@@ -2,10 +2,10 @@ from formattelnumbers import cleaningTelNum
 
 
 #Fix telephone format
-def fix_telephone_format(telephoneNo):
+def fix_telephone_format(telephoneNo, telCountry = None):
     telephoneNo = cleaningTelNum.remove_first_space_from_tel(telephoneNo)
     telephoneNo = cleaningTelNum.remove_plus_from_tel(telephoneNo)
-    telephoneNo = cleaningTelNum.remove_country_code(telephoneNo)
+    telephoneNo = cleaningTelNum.remove_country_code(telephoneNo, telCountry)
     telephoneNo = cleaningTelNum.place_zero_at_first(telephoneNo)
     telephoneNo = cleaningTelNum.remove_all_characters(telephoneNo)
     return telephoneNo
