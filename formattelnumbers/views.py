@@ -47,7 +47,7 @@ def format_tel_numbers_input(request):
             #    number = cleaningTelNumPreparation.fix_telephone_format(number)
             #    listResult.append(number)
             ##New solution:
-            listResult = process_numbers(listTextData)
+            listResult = process_numbers(listTextData, "SE") #Hardocing solution for SE
 
 
             #turn list into rows
