@@ -64,7 +64,7 @@ class format_tel_numbers_api(APIView):
                     return Response(serializer.data, status=status.HTTP_200_OK)
                 
 
-
+        #Caling a view from another app
         listResult = process_numbers(listOfTelNumbers)
         #print(listResult)
 

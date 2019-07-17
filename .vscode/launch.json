@@ -9,7 +9,7 @@
             "name": "Django moj",
             "type": "python",
             "request": "launch",
-            "pythonPath": "/home/goran/.virtualenvs/inaivatools/bin/python",
+            "pythonPath": "/home/goran/.virtualenvs/inaivatools_env/bin/python",
             "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver",
