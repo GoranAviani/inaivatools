@@ -25,17 +25,19 @@ def remove_country_code(telephoneNo, telCountry = None):
                 telephoneNo = telephoneNo[3:len(telephoneNo)]
             elif telephoneNo[0:4] == "0046":
                 telephoneNo = telephoneNo[4:len(telephoneNo)]
+            elif telephoneNo[0:4] == "+346": #Not sure if its used
+                telephoneNo = telephoneNo[4:len(telephoneNo)]
             elif telephoneNo[0:2] == "00": #not sure if needed but it is ok bcs I add first 0 later on if its  missing
                 telephoneNo = telephoneNo[2:len(telephoneNo)]
     elif telCountry == "FI":
         if len(list(telephoneNo)) > 0:
             if telephoneNo[0:2] == "58":
                 telephoneNo = telephoneNo[2:len(telephoneNo)]
-            
-
             elif telephoneNo[0:3] == "058":
                 telephoneNo = telephoneNo[3:len(telephoneNo)]
             elif telephoneNo[0:4] == "0058":
+                telephoneNo = telephoneNo[4:len(telephoneNo)]
+            elif telephoneNo[0:4] == "+358": #Used according to wikipedia
                 telephoneNo = telephoneNo[4:len(telephoneNo)]
             elif telephoneNo[0:2] == "00": #not sure if needed but it is ok bcs I add first 0 later on if its  missing
                 telephoneNo = telephoneNo[2:len(telephoneNo)]
