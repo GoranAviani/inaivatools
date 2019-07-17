@@ -18,7 +18,7 @@ def get_all_values_by_cell_letter(letter, currentSheet):
             cell_name = "{}{}".format(column, row)
             #print(cell_name)
             #take old data and send it to fixing
-            telephoneNo = fix_telephone_format(currentSheet[cell_name].value)
+            telephoneNo = fix_telephone_format(currentSheet[cell_name].value, "SE")
             #put new data in cell
 
 
