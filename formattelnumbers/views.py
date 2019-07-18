@@ -60,7 +60,7 @@ def format_tel_numbers_input(request):
             #turn list into rows
             rowTextData = turn_list_to_row(listResult)
 
-            data = {'inputText': rowTextData}
+            data = {'inputText': rowTextData, "countryCode" : numbersToFormat['countryCode'].value()}
             numbersToFormat = format_tel_numbers_input_form(initial=data)
 
             return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
