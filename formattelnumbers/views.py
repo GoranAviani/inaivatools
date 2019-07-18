@@ -35,11 +35,10 @@ def format_tel_numbers_input(request):
         numbersToFormat = format_tel_numbers_input_form(request.POST)
 
         if numbersToFormat.is_valid():
-            isCountyInList = dataProcessing.check_country_code(numbersToFormat['inputText'].value())
+            isCountyInList = dataProcessing.check_country_code(numbersToFormat['countryCode'].value())
             if isCountyInList == "non_existing_country":
                 numbersToFormat = format_tel_numbers_input_form(initial={"inputText" : "This country code is not selectable." , "countryCode": numbersToFormat['countryCode'].value()})
                 return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
-
 
 
             textdata = numbersToFormat['inputText'].value()
