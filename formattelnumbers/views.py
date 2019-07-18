@@ -31,13 +31,14 @@ def process_numbers(listTextData, telCountry = None):
     return listResult
 
 def format_tel_numbers_input(request):
+    #countryCodes = ["SE", "FI"]
     if request.method == 'POST':
         numbersToFormat = format_tel_numbers_input_form(request.POST)
 
         if numbersToFormat.is_valid():
             isCountyInList = dataProcessing.check_country_code(numbersToFormat['countryCode'].value())
             if isCountyInList == "non_existing_country":
-                numbersToFormat = format_tel_numbers_input_form(initial={"inputText" : "This country code is not selectable." , "countryCode": numbersToFormat['countryCode'].value()})
+                numbersToFormat = format_tel_numbers_input_form(initial={"inputText" : "This country code is not selectable."})
                 return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
 
 
@@ -59,13 +60,13 @@ def format_tel_numbers_input(request):
             #turn list into rows
             rowTextData = turn_list_to_row(listResult)
 
-            data = {'inputText': rowTextData, "countryCode": numbersToFormat['countryCode'].value()}
+            data = {'inputText': rowTextData}
             numbersToFormat = format_tel_numbers_input_form(initial=data)
 
             return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
 
     else:
-        numbersToFormat = format_tel_numbers_input_form(initial={"countryCode": "SE"})
+        numbersToFormat = format_tel_numbers_input_form()
         return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
 
 

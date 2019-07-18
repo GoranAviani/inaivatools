@@ -1,11 +1,11 @@
-<!-- templates/signup.html -->
+  <!-- templates/signup.html -->
 {% extends 'base.html' %}
 
 {% block content %}
   <div class="container">
         <div class="well  normal-center-container">
             <h2>Format telephone numbers - Sweden and Finland</h2>    
-        To start using please select betwen two country codes: SE or FI</br> </br>            
+        In the bottom please select which telephone formatting would you like to use: Swedish or Finnish</br> </br>            
             <form method="post" class="form-horizontal row-fluid">
                 {% csrf_token %}
                 <div class="control-group">
@@ -15,10 +15,9 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="basicinput">Country Code:</label>
+                    <label class="control-label" for="basicinput">Country:</label>
                     <div class="controls">
                         {{numbersToFormat.countryCode}}
-                    </div>
                 </div>
             </br></br>
                 <div class="d-flex justify-content-center">
