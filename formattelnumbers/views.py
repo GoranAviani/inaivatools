@@ -31,7 +31,6 @@ def process_numbers(listTextData, telCountry = None):
     return listResult
 
 def format_tel_numbers_input(request):
-    #countryCodes = ["SE", "FI"]
     if request.method == 'POST':
         numbersToFormat = format_tel_numbers_input_form(request.POST)
 
@@ -46,20 +45,15 @@ def format_tel_numbers_input(request):
             countrydata = numbersToFormat['countryCode'].value()
             #turn tel numbers into a list
             listTextData = turn_textdata_to_list(textdata)
-
-            #Moving to separate function due to making apirelays app. This new app needs to get 
-            #to this part of te code. New solution is bellow
-            #listResult = []
-            #for number in listTextData:
-            #    number = cleaningTelNumPreparation.fix_telephone_format(number)
-            #    listResult.append(number)
-            ##New solution:
-            listResult = process_numbers(listTextData, countrydata) #Hardocing solution for SE
+            
+            #processing of telephone numbers
+            listResult = process_numbers(listTextData, countrydata)
 
 
             #turn list into rows
             rowTextData = turn_list_to_row(listResult)
 
+            #return processed data
             data = {'inputText': rowTextData, "countryCode" : numbersToFormat['countryCode'].value()}
             numbersToFormat = format_tel_numbers_input_form(initial=data)
 

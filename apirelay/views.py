@@ -41,13 +41,12 @@ class format_tel_numbers_api(APIView):
     def get(self, request):      
         
         listOfTelNumbers=[]
-        #telNumberList =""
         telCountry = {}
         telNumberList = {}
 
         dict= request._request.GET #geting the data from QueryDict
         dict = dict.dict() #QueryDict to Python dict
-        #print("EVOOOO "+ str(dict))
+        
         if bool(dict) is not False: # is dict is not empty then look for these fields
             telCountry = dict["telCountry"]
 
