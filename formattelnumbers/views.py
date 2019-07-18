@@ -36,7 +36,7 @@ def format_tel_numbers_input(request):
 
 
             textdata = numbersToFormat['inputText'].value()
-            
+            countrydata = numbersToFormat['countryCode'].value()
             #turn tel numbers into a list
             listTextData = turn_textdata_to_list(textdata)
 
@@ -47,7 +47,7 @@ def format_tel_numbers_input(request):
             #    number = cleaningTelNumPreparation.fix_telephone_format(number)
             #    listResult.append(number)
             ##New solution:
-            listResult = process_numbers(listTextData, "SE") #Hardocing solution for SE
+            listResult = process_numbers(listTextData, countrydata) #Hardocing solution for SE
 
 
             #turn list into rows
