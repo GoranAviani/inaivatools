@@ -59,7 +59,7 @@ def format_tel_numbers_input(request):
             return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
 
     else:
-        numbersToFormat = format_tel_numbers_input_form()
+        numbersToFormat = format_tel_numbers_input_form(initial={"countryCode": "SE"})
         return render(request, 'formatTelNumbers/formattelnumers.html', {'numbersToFormat': numbersToFormat})
 
 
