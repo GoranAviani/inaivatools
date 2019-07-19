@@ -56,20 +56,18 @@ class format_tel_numbers_api(APIView):
         dict = dict.dict() #QueryDict to Python dict
         
         if bool(dict) is not False: # is dict is not empty then look for these fields
-            telCountry = dict["telCountry"]
-
-             
-
-            telNumberList = dict["telNumberList"]
-            listOfTelNumbers = telNumberList.split(",")
-            
-            result = dataProcessing.check_country_code(telCountry)
-            if result == "non_existing_country":
-                data = {'responseMessage': "Failure. Unknown country", "telCountry": "Unknown country code", 'telNumberList': "This field may not be blank."}
-                serializer = TelNumberSerializer(data=data)
-                if serializer.is_valid():
-                    return Response(serializer.data, status=status.HTTP_200_OK)
+            if 'telCountry' in dict.keys():
+                telCountry = dict["telCountry"]
+                telNumberList = dict["telNumberList"]
+                listOfTelNumbers = telNumberList.split(",")
                 
+                result = dataProcessing.check_country_code(telCountry)
+                if result == "non_existing_country":
+                    data = {'responseMessage': "Failure. Unknown country", "telCountry": "Unknown country code", 'telNumberList': "This field may not be blank."}
+                    serializer = TelNumberSerializer(data=data)
+                    if serializer.is_valid():
+                        return Response(serializer.data, status=status.HTTP_200_OK)
+                    
 
         #Caling a view from another app
         listResult = process_numbers(listOfTelNumbers, telCountry)
