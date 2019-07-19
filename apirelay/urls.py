@@ -5,5 +5,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
    path('formattelnumbers/', views.format_tel_numbers_api.as_view(), name='api-formattelnumbers'),
+   path('docs/', views.render_api_docs, name ='render-api-docs'),
 
 ]

@@ -7,6 +7,14 @@ from rest_framework import status
 from apirelay.serializers import TelNumberSerializer
 from formattelnumbers.views import process_numbers
 from apirelay import dataProcessing
+
+def render_api_docs(request):
+    return render(
+    request,
+    'apiRelay/api_docs.html'
+)
+
+
 """
 class format_tel_numbers_api(APIView):
     serializer_class = TelNumberSerializer
