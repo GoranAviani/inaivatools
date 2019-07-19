@@ -1,1 +1,115 @@
-api docs
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}API Documentation - Incodaq Tools{% endblock %}
+{% block content %}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="content">        
+                    
+                        <div class="content">
+                            <div class="module">
+                                <div class="module-head">
+                                    <h2>API Docs</h2>
+                                </div>
+                                <div class="module-body">
+                                    <section class="docs">
+                                        <h3>Overview</h3>
+                                        <p>
+                                            This is a simple API that returnes standardized telephone numbers. </br></br> 
+                                            This API takes two parameters as inputs: first is a Country code and the second is the string of telephone numbers divided by a comma.                                                                                     
+                                        </p>     
+                                                                        
+                                    
+                                    </section> 
+                                    <section class="docs">
+                                            <h3>Output JSON</h3>
+                                            
+
+https://tools.incodaq.com/api/v1/formattelnumbers/<br/>
+
+{<br/>
+    "telCountry": [<br/>
+        "Not a valid string."<br/>
+    ],<br/>
+    "telNumberList": [<br/>
+        "This field may not be blank."<br/>
+    ]<br/>
+}<br/>
+The data payload is a county code telCountry and a telNumberList that .
+
+                                            
+                                            
+                                            
+                                            
+                                            <br/><br/>
+                                            <h3>List of tools</h3>
+                                            <p>
+                                                1. Merge tool <br/>
+                                                2. Format telephone numbers<br/>
+                                                3. Format telephone numbers from Excel - Swedish edition (Locked tool)<br/>
+                                            </p>
+
+                                            <h3>Tool description</h3>
+                                            <p>
+                                                    <strong>Merge text lines tool</strong> <br/>
+                                                    This tool is used for merging several rows into one row joined by symbols or characters of users choice.
+                                            </p>
+
+                                            <p>
+                                                    <strong>Format telephone numbers</strong> <br/>
+                                                    The idea behind this tools is to use it to fix telephone numbers to fit into Swedish or Finnish telephone number format. To use it you just need to copy your Swedish or Finnish telephone numbers - each row should hold not more than one telephone number.
+                                                    You also need to select between available country codes (SE or FI) - SE is pre selected. 
+                                                </p>
+
+                                            <p>
+                                                    <strong>Formatting telephone numbers from Excel, SE edition</strong> <br/>
+                                                    Formatting telephone numbers from Excel, SE edition - does all the things just as the above tool but with the convenience of uploading Excel files from which telephone numbers will be automatically standardized to Swedish telephone standard. The fixed file will be available for download.
+                                            </p>
+
+                                            <p>
+                                                <strong>Comparing two lists</strong> <br/>
+                                                This tools looks at the differences two inputed lists have and shows as a result instances that are found in both lists and instances that are found only in the first list (missing in the second list).
+                                        </p>
+                                            
+                                    </section>  
+                                </div>                               
+                            </div>
+                        </div>
+                        
+                    <!--/.span12-->
+                            
+                           
+                        <div class="btn-box-row row-fluid">
+                            <div class="span12">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <a href="mailto: goran.aviani@gmail.com" class="btn-box small span3"><i class="icon-envelope"></i><b>Email</b>
+                                        </a><a href="https://se.linkedin.com/in/goran-aviani" class="btn-box small span3"><i class="icon-group"></i><b>Linkedin</b>
+                                        </a><a href="https://github.com/GoranAviani" class="btn-box small span3"><i class="icon-save"></i><b>Github</b>
+                                        </a>
+                                        <a href="https://medium.com/@goranaviani" class="btn-box small span3"><i class="icon-pencil"></i><b>Medium articles</b></a>
+                                        
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            
+                        </div>
+                    
+                    <!--/#btn-controls-->
+                    
+                </div>
+                <!--/.content-->
+            </div>
+            <!--/.span9-->
+        </div>
+    </div>
+    <!--/.container-->
+</div>
+<!--/.wrapper-->
+
+
+{% endblock %}
