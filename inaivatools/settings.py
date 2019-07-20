@@ -129,6 +129,16 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
+#Path settings for dev or production:
+if DEBUG == True:
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+else:
+    #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+      
 #for local comment, for production uncomment
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -136,7 +146,7 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 #for local uncomment for production comment
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 #for local comment for production uncomment
 #PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
