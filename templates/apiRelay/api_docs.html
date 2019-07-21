@@ -31,10 +31,18 @@
                                     <section class="docs">
                                     <h3>Input</h3>
                                     <p>
-This API has 2 required input values. </br>
-Input-----------Description---------------Valid Range---------Type-----Required?</br>
-telCountry------Country code--------------SE or FI------------String---YES</br>
-telNumberList---Telephone numbers---------Telephone numbers---String---YES</br>
+This API has 2 required input values. </br></br>
+Input: telCountry</br>
+Description: Country code</br>
+Valid range: SE or FI</br>
+Type: String</br>
+Required: Yes</br>
+</br></br>
+Input: telNumberList</br>
+Description: Telepone numbers</br>
+Valid range: Telephone numbers divided by a comma</br>
+Type: String</br>
+Required: Yes</br>
 </p>
 
 
@@ -56,7 +64,7 @@ The data payload is a county code telCountry and a telNumberList that .
 
                                             
 
-                                            <h3>Output JSON with inputs</h3>
+                     https://medium.com/@goranaviani/testing-in-python-c6b903eb247d                       <h3>Output JSON with inputs</h3>
 GET Request:<br/>
 https://tools.incodaq.com/api/v1/formattelnumbers/?telCountry=SE&telNumberList="+4673123-4412,004673 123-3332,076 111 12 34,75 113 1244,08 444 555,08-123-1234,08555-6666" 
 <br/><br/>
