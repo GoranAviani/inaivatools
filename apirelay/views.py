@@ -17,47 +17,47 @@ def render_api_docs(request):
 class format_tel_numbers_api(APIView):
  # serializer_class = TelNumberSerializer
 
-   def get(self, request):     
+    def get(self, request):     
       
-       listOfTelNumbers=[]
-       telCountry = {}
-       telNumberList = {}
+        listOfTelNumbers=[]
+        telCountry = {}
+        telNumberList = {}
 
-       dict= request._request.GET #geting the data from QueryDict
-       dict = dict.dict() #QueryDict to Python dict
+        dict= request._request.GET #geting the data from QueryDict
+        dict = dict.dict() #QueryDict to Python dict
       
-       try:
+        try:
            telCountry = dict["country_code"]
-       except:
-           try:
+        except:
+            try:
                telNumberList = dict["telephone_numbers"]
-           except:
+            except:
                return Response({'status': "FAILED ", "message": "No country code and no telephone numbers"})
-           return Response({'status': "FAILED ", "message": "No country code"})
+            return Response({'status': "FAILED ", "message": "No country code"})
 
-       try:
+        try:
            telNumberList = dict["telephone_numbers"]
-       except:
+        except:
            return Response({'status': "FAILED ", "message": "No telephone numbers"})
 
-       telCountry = dict["country_code"]
-       result = dataProcessing.check_country_code(telCountry)
-       if result == "non_existing_country":
+        telCountry = dict["country_code"]
+        result = dataProcessing.check_country_code(telCountry)
+        if result == "non_existing_country":
            data = {'status': "FAILED", "message": "Unknown country code"}
            return Response(data, status=status.HTTP_200_OK)
           
-       telNumberList = dict["telephone_numbers"]
-       listOfTelNumbers = telNumberList.split(",")
+        telNumberList = dict["telephone_numbers"]
+        listOfTelNumbers = telNumberList.split(",")
       
-       #Caling a view from another app
-       listResult = process_numbers(listOfTelNumbers, telCountry)
-       #print(listResult)
+        #Caling a view from another app
+        listResult = process_numbers(listOfTelNumbers, telCountry)
+        #print(listResult)
 
-       listResultChar = ",".join(listResult)
-       #print(listResultChar)
+        listResultChar = ",".join(listResult)
+        #print(listResultChar)
 
-       data = {'status': "SUCCESS", "country_code": telCountry, 'telephone_numbers': listResultChar}
-       return Response(data, status=status.HTTP_200_OK)
+        data = {'status': "SUCCESS", "country_code": telCountry, 'telephone_numbers': listResultChar}
+        return Response(data, status=status.HTTP_200_OK)
 
 
 
