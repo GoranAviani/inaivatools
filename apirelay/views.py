@@ -4,7 +4,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status    
-from apirelay.serializers import TelNumberSerializer
+#from apirelay.serializers import TelNumberSerializer
 from formattelnumbers.views import process_numbers
 from apirelay import dataProcessing
 
@@ -43,7 +43,7 @@ class format_tel_numbers_api(APIView):
 
 
 class format_tel_numbers_api(APIView):
-   serializer_class = TelNumberSerializer
+ #  serializer_class = TelNumberSerializer
 
 
    def get(self, request):     
