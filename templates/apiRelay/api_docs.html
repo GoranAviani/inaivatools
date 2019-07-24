@@ -51,16 +51,16 @@
 
                                     <h3>Example of a FI call</h3>
                                         GET Request:<br/>
-                                        http://127.0.0.1:8000/api/v1/formattelnumbers/?country_code=FI&telephone_numbers="+58731264413,0058731212345,+358 7 3123-4412,+5873123-4412,005873 123-3332,076 111 12 34,75 113 1244,08 444 555,085556666,08-123-1234,08555-6666"                                        <br/><br/>
+                                        https://tools.incodaq.com/api/v1/formattelnumbers/?country_code=FI&telephone_numbers="+58731264413,0058731212345,+358 7 3123-4412,+5873123-4412,005873 123-3332,076 111 12 34,75 113 1244,08 444 555,085556666,08-123-1234,08555-6666"                                        <br/><br/>
                                         Response:<br/>
-                                        {"status":"SUCCESS","country_code":"FI","telephone_numbers":"058731264413,0731212345,0731234412,0731234412,0731233332,0761111234,0751131244,08444555,085556666,081231234,085556666"}<br/>
+                                        {"status":"SUCCESS","country_code":"FI","telephone_numbers":"0731264413,0731212345,0731234412,0731234412,0731233332,0761111234,0751131244,08444555,085556666,081231234,085556666"}<br/>
 
                                     <h3>Example of a SE call</h3>
                                         GET Request:<br/>
-                                        http://127.0.0.1:8000/api/v1/formattelnumbers/?country_code=SE&telephone_numbers="+46731264413,0046731212345,+4673123-4412,004673 123-3332,076 111 12 34,75 113 1244,08 444 555,085556666,08-123-1234,08555-6666"
+                                        https://tools.incodaq.com/api/v1/formattelnumbers/?country_code=SE&telephone_numbers="+46731264413,0046731212345,+4673123-4412,004673 123-3332,076 111 12 34,75 113 1244,08 444 555,085556666,08-123-1234,08555-6666"
                                         <br/><br/>
                                         Response:<br/>
-                                        {"status":"SUCCESS","country_code":"SE","telephone_numbers":"046731264413,0731212345,0731234412,0731233332,0761111234,0751131244,08444555,085556666,081231234,085556666"}<br/>
+                                        {"status":"SUCCESS","country_code":"SE","telephone_numbers":"0731264413,0731212345,0731234412,0731233332,0761111234,0751131244,08444555,085556666,081231234,085556666"}<br/>
                                     
                                     <h2>Example of failed API calls</h2>
                                             <h3>Output JSON without sending the inputs</h3>
