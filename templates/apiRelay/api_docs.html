@@ -12,16 +12,17 @@
                         <div class="content">
                             <div class="module">
                                 <div class="module-head">
-                                    <h2>API Docs</h2>
+                                    <h1>API Docs</h1>
                                 </div>
                                 <div class="module-body">
                                     <section class="docs">
-                                        <h3>Overview</h3>
+                                        <h2>Overview</h2>
                                         <p>
                                             Note: This documentatios is unfinished.
-
+                                        </p> 
+                                        <p>
                                             This is a simple API that returnes standardized telephone numbers for Sweden and Finland. </br> 
-                                            
+                                        </br></br>
                                             This API expects two parameters as inputs: country code and the and telephone numbers. Telephone numbers need to be a string where the numbers are divided with a comma sign. All fields are required.
                                             This API returns three parameters: response message, country code and fixed telephone numbers.
                                         </p>     
@@ -29,53 +30,63 @@
                                     
                                     </section> 
                                     <section class="docs">
-                                    <h3>Input</h3>
+                                    <h2>Inputs</h2>
                                     <p>
-This API has 2 required input values. </br></br>
-Input: country_code</br>
-Description: Country code</br>
-Valid range: SE or FI</br>
-Type: String</br>
-Required: Yes</br>
-</br></br>
-Input: telephone_numbers</br>
-Description: Telepone numbers divided by a comma</br>
-Valid range: Telephone numbers</br>
-Type: String</br>
-Required: Yes</br>
-</p>
+                                        This API has 2 required input values. </br></br>
+                                        Input: country_code</br>
+                                        Description: Country code</br>
+                                        Valid range: SE or FI</br>
+                                        Type: String</br>
+                                        Required: Yes</br>
+                                        </br></br>
+                                        Input: telephone_numbers</br>
+                                        Description: Telepone numbers divided by a comma</br>
+                                        Valid range: Telephone numbers</br>
+                                        Type: String</br>
+                                        Required: Yes</br>
+                                    </p>
 
 
-                                            <h3>Output JSON without the inputs</h3>
+                                    <h2>Example of succesfull API calls</h2>
+
+                                    <h3>Example of a FI call</h3>
+
+                                    
+                                    
+                                    <h2>Example of failed API calls</h2>
+                                            <h3>Output JSON without sending the inputs</h3>
+                                                                                            
+                                                GET Request:<br/>
+                                                https://tools.incodaq.com/api/v1/formattelnumbers/
+                                                <br/>
+                                                <br/>
+                                                Response:<br/>
+                                                {"status":"FAILED ","message":"No country code and no telephone numbers"}<br/>
+
+
                                             
-GET Request:<br/>
-https://tools.incodaq.com/api/v1/formattelnumbers/<br/>
-<br/>
-Response:<br/>
-{<br/>
-    "telCountry": [<br/>
-        "Not a valid string."<br/>
-    ],<br/>
-    "telNumberList": [<br/>
-        "This field may not be blank."<br/>
-    ]<br/>
-}<br/>
-The data payload is a county code telCountry and a telNumberList that .
 
-                                            
-
-                     https://medium.com/@goranaviani/testing-in-python-c6b903eb247d                       <h3>Output JSON with inputs</h3>
+<h3>Output JSON without sending the telephone_numbers input</h3>
 GET Request:<br/>
-https://tools.incodaq.com/api/v1/formattelnumbers/?telCountry=SE&telNumberList="+4673123-4412,004673 123-3332,076 111 12 34,75 113 1244,08 444 555,08-123-1234,08555-6666" 
+https://tools.incodaq.com/api/v1/formattelnumbers/?country_code=SE
+
 <br/><br/>
 Response:<br/>
-{<br/>
-    "responseMessage": "Success",<br/>
-    "telCountry": "SE",<br/>
-    "telNumberList": "046731234412,0731233332,0761111234,0751131244,08444555,081231234,085556666"
-<br/>
-}<br/>
+{"status":"FAILED ","message":"No telephone numbers"}<br/>
 
+<h3>Output JSON without sending the country_code input</h3>
+GET Request:<br/>
+https://tools.incodaq.com/api/v1/formattelnumbers/?telephone_numbers="+46731264413,0046731212345,+4673123-4412,004673 123-3332,076 111 12 34,75 113 1244,08 444 555,085556666,08-123-1234,08555-6666"
+<br/><br/>
+Response:<br/>
+{"status":"FAILED ","message":"No country code"}<br/>
+
+<h3>Output JSON without sending the proper country_code input</h3>
+GET Request:<br/>
+https://tools.incodaq.com/api/v1/formattelnumbers/?country_code=ST&telephone_numbers="+46731264413,0046731212345,+4673123-4412,004673 123-3332,076 111 12 34,75 113 1244,08 444 555,085556666,08-123-1234,08555-6666"
+<br/><br/>
+Response:<br/>
+{"status":"FAILED","message":"Unknown country code"}<br/>
 
 
                                             
