@@ -33,8 +33,10 @@
                         <ul class="dropdown-menu">
                             <li class="nav-header">Free tools</li>
                             <li><a href="{% url 'mergetextinput' %}">Merge text lines</a></li>
+                            <li><a href="{% url 'splittextinput' %}">Split text lines</a></li>
                             <li><a href="{% url 'formattelnumbers' %}">Format telephone numbers</a></li>
                             <li><a href="{% url 'comparelists' %}">Compare two lists</a></li>
+                                                        
                             <li class="divider"></li>
                             <li class="nav-header">Locked tools</li>
                             {% if user.is_authenticated %}
