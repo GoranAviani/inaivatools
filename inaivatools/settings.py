@@ -23,7 +23,7 @@ SECRET_KEY = 'ld-5bmh8$0evt*r5$$*_u@atk6(zx+)m)%gm%m1hp45o$gjtv3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '157.230.127.167', '127.0.0.1', 'localhost']
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'apirelay',
+    'splittextbychar',
 ]
 
 AUTH_USER_MODEL = 'expandeduser.custom_user'
