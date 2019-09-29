@@ -1,0 +1,33 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+        <div class="well  normal-center-container">
+            <h2>Split Text Lines</h2>            
+            <form method="post" class="form-horizontal row-fluid">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Input lines:</label>
+                    <div class="controls">
+                        {{textToSplit.inputText}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Split by:</label>
+                    <div class="controls">
+                        {{textToSplit.splitBy}} <span class="help-inline">Comma surrounded by captions (',') by default</span>   
+                    </div>            
+                </div>
+            </br></br>  
+                <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary textSize20px">Split lines</button>    
+                      </div>                 
+            </form>
+        </br></br>
+        <div class="d-flex justify-content-center">
+            <p><a href="{% url 'index' %}" class="btn textSize20px btn-primary">Return to dashboard</a></p>       
+        </div>
+        </div>
+  </div>
+{% endblock %}
