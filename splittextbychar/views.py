@@ -10,15 +10,15 @@ def split_text_input(request):
         if textToSplit.is_valid():
 
             textdata = textToSplit['inputText'].value()
-            splitBy = textToSplit['joinBy'].value()
+            splitBy = textToSplit['splitBy'].value()
             
             #replacing inputed character with \r\n
             textdata = textdata.replace(splitBy, "\r\n")
 
-            data = {'inputText': textdata, 'joinBy': mergeBy}
+            data = {'inputText': textdata, 'splitBy': splitBy}
             textToSplit = split_text_input_form(initial=data)
             
-            return render(request, 'splitTextLines/splitlines.html', {'textToSplit': textToSpit})
+            return render(request, 'splitTextLines/splitlines.html', {'textToSplit': textToSplit})
 
     else:
         textToSplit = split_text_input_form()
