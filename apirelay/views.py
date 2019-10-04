@@ -19,34 +19,36 @@ class format_tel_numbers_api(APIView):
 
     def get(self, request):     
       
-        listOfTelNumbers=[]
-        telCountry = {}
-        telNumberList = {}
+  #      listOfTelNumbers=[]
+ #       telCountry = {}
+#        telNumberList = {}
 
-        dict= request._request.GET #geting the data from QueryDict
-        dict = dict.dict() #QueryDict to Python dict
+        #dict= request._request.GET #geting the data from QueryDict
+        #dict = dict.dict() #QueryDict to Python dict
       
+        
+        qpdict= self.request.query_params.dict()
         try:
-           telCountry = dict["country_code"]
+           telCountry = qpdict["country_code"]
         except:
             try:
-               telNumberList = dict["telephone_numbers"]
+               telNumberList = qpdict["telephone_numbers"]
             except:
                return Response({'status': "FAILED ", "message": "No country code and no telephone numbers"})
             return Response({'status': "FAILED ", "message": "No country code"})
 
         try:
-           telNumberList = dict["telephone_numbers"]
+           telNumberList = qpdict["telephone_numbers"]
         except:
            return Response({'status': "FAILED ", "message": "No telephone numbers"})
 
-        telCountry = dict["country_code"]
+        telCountry = qpdict["country_code"]
         result = dataProcessing.check_country_code(telCountry)
         if result == "non_existing_country":
            data = {'status': "FAILED", "message": "Unknown country code"}
            return Response(data, status=status.HTTP_200_OK)
           
-        telNumberList = dict["telephone_numbers"]
+        telNumberList = qpdict["telephone_numbers"]
         listOfTelNumbers = telNumberList.split(",")
       
         #Caling a view from another app
