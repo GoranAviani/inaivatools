@@ -22,8 +22,8 @@ node {
 
         stage 'Test'
             // Invoke Django's tests
-            sh 'env1/bin/activate && python ./manage.py test'
-            //sh 'python ./manage.py test'
+            //sh '. env1/bin/activate && python ./manage.py test'
+            sh 'python ./manage.py test'
         
         stage 'Deploy'
             sh './deployment/deploy_prod.sh'
