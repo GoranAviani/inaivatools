@@ -10,10 +10,9 @@ node {
             def lastChanges = readFile('GIT_CHANGES')
             
         stage 'Update Python Modules'
-            sh 'pip install virtualenv'
             // Create a virtualenv in this folder, and install or upgrade packages
             // specified in requirements.txt; https://pip.readthedocs.io/en/1.1/requirements.html
-            sh 'virtualenv env && source env/bin/activate && pip install --upgrade -r requirements.txt'
+            sh 'virtualenv env && source env/bin/activate && pip3 install --upgrade -r requirements.txt'
   
 
 
@@ -24,7 +23,7 @@ node {
         stage 'Deploy'
             sh './deployment/deploy_prod.sh'
 
-        stage 'Publish results'
+        
            
     }
 
