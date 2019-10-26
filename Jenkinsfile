@@ -12,7 +12,7 @@ node {
         stage 'Update Python Modules'
             // Create a virtualenv in this folder, and install or upgrade packages
             // specified in requirements.txt; https://pip.readthedocs.io/en/1.1/requirements.html
-            sh 'virtualenv env -p python3.5'
+            sh 'virtualenv env'
             sh '. env/bin/activate'
             // sh 'virtualenv env &&sudo env/bin/activate && pip3 install --upgrade -r requirements.txt'
             sh 'pip3 install --upgrade -r requirements.txt'
