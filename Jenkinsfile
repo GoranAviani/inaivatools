@@ -27,7 +27,7 @@ node {
             //sh 'python ./manage.py test'
         
         stage 'Deploy'
-            sh './deployment/deploy_prod.sh'
+            //sh './deployment/deploy_prod.sh'
 
         
            
