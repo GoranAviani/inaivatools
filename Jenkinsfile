@@ -32,7 +32,7 @@ node {
             sh '2008anja'
             sh 'cd inaivatoolsenv'
             sh 'source inaivatoolsenv/bin/activate'
-            sh 'cd ..''
+            sh 'cd ..'
             sh 'cd inaivatools'
             sh 'git pull'
             sh 'pip install -r requirements.txt'
