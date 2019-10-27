@@ -14,10 +14,10 @@ node {
             // specified in requirements.txt; https://pip.readthedocs.io/en/1.1/requirements.html
             //sh 'rmvirtualenv env'
             sh 'virtualenv env1'
-            sh '. env1/bin/activate'
-            // sh 'virtualenv env &&sudo env/bin/activate && pip3 install --upgrade -r requirements.txt'
-            sh 'pip3 install --upgrade -r requirements.txt'
-            sh 'python ./manage.py test'
+            //sh '. env1/bin/activate'
+            sh '. env1/bin/activate && pip3 install --upgrade -r requirements.txt && python ./manage.py test'
+            // sh 'pip3 install --upgrade -r requirements.txt'
+           // sh 'python ./manage.py test'
   
 
 
