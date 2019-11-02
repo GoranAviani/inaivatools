@@ -28,6 +28,7 @@ node {
             //sh 'python ./manage.py test'
         
         stage 'Deploy'
+            sh 'chmod +x ./deployment/deploy_prod.sh'
             sh './deployment/deploy_prod.sh'
             // sh 'ssh root@157.230.127.167'
             // sh '2008anja'
