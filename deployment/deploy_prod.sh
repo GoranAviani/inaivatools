@@ -1,5 +1,4 @@
 #!/bin/sh
-
 ssh root@157.230.127.167 <<EOF
     2008anja
     cd inaivatoolsenv
