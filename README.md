@@ -22,9 +22,11 @@ Compare two lists -
 This tools is used to compare the differences between two lists. After user inputes list one and list two the result shown will be all instances found in list one and two and instances found in list one but missing from list two.
 
 
-TFormat telephone numbers from Excel tool was an template used for writing an article article: 
-How to create, read, update and search through Excel files using Python
-https://www.freecodecamp.org/news/how-to-create-read-update-and-search-through-excel-files-using-python-c70680d811d4/
+Format telephone numbers from Excel tool was an template used for writing an article article: 
+
+
+[How to create, read, update and search through Excel files using Python](https://www.freecodecamp.org/news/how-to-create-read-update-and-search-through-excel-files-using-python-c70680d811d4/)
+
 
 
 Web: https://tools.incodaq.com/
