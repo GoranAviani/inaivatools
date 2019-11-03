@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-from .local_settings import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +19,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("SECRET_KEY_INCODAQTOOLS","#$%&N(titoAD^*(%326n26835625BEWSRTSER&^@T#%$Bwertb")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
+
+ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '157.230.127.167', '127.0.0.1', 'localhost']
 
 
 # Application definition
