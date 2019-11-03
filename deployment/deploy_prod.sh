@@ -1,8 +1,6 @@
 #!/bin/sh
 ssh root@157.230.127.167 <<EOF
-    cd inaivatoolsenv
-    source inaivatoolsenv/bin/activate
-    cd ..
+    source ./inaivatoolsenv/bin/activate
     cd inaivatools
     git pull
     pip install -r requirements.txt
