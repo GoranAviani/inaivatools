@@ -2,3 +2,6 @@ db.inaivatools
 *.pyc
 .idea
 .vscode
+*.pyc
+*~
+*.swp
