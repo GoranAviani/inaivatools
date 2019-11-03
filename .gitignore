@@ -2,3 +2,4 @@ db.inaivatools
 *.pyc
 .idea
 .vscode
+/inaivatools/local_settings.py
