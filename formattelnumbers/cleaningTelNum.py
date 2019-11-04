@@ -1,10 +1,15 @@
 
 #Sometimes the first character is space (" ")
-def remove_first_space_from_tel(telephoneNo):
+def remove_spaces_from_tel(telephoneNo):
+    result = ""
     if len(list(telephoneNo)) > 0:
-        if telephoneNo[0] == " ":
-            telephoneNo = telephoneNo[1:len(telephoneNo)]
-    return telephoneNo
+        for x in telephoneNo:
+            if x == " ":
+                pass
+            else:
+                result += x
+                
+    return result
 
 
 
