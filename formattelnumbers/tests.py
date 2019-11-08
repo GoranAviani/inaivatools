@@ -76,3 +76,7 @@ class PlaceZeroAtFirst(TestCase):
     def test_place_zero(self):
             result = place_zero_at_first("73123123")
             self.assertEqual(result, ("073123123"))
+
+    def test_dont_place_zero(self):
+            result = place_zero_at_first("073123123")
+            self.assertEqual(result, ("073123123"))
