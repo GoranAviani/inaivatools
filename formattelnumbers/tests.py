@@ -58,3 +58,14 @@ class RemoveCountryCodeFI(TestCase):
         result = remove_country_code("05873123123", "FI")
         self.assertEqual(result, ("73123123"))
 
+    def test_remove_country_code_fi_0058(self):
+        result = remove_country_code("005873123123", "FI")
+        self.assertEqual(result, ("73123123"))
+
+    def test_remove_country_code_fi_358(self):
+        result = remove_country_code("35873123123", "FI")
+        self.assertEqual(result, ("73123123"))
+
+    def test_remove_country_code_fi_00(self):
+        result = remove_country_code("0073123123", "FI")
+        self.assertEqual(result, ("73123123"))
