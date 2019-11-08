@@ -25,7 +25,7 @@ class RemovePlusFromTel(TestCase):
         result = remove_plus_from_tel("+073123123")
         self.assertEqual(result, ("073123123"))
 
-class RemoveCountryCode(TestCase):
+class RemoveCountryCodeSE(TestCase):
 
     def test_remove_country_code_se_46(self):
         result = remove_country_code("4673123123", "SE")
@@ -46,3 +46,15 @@ class RemoveCountryCode(TestCase):
     def test_remove_country_code_se_00(self):
         result = remove_country_code("0073123123", "SE")
         self.assertEqual(result, ("73123123"))
+
+
+class RemoveCountryCodeFI(TestCase):
+
+    def test_remove_country_code_fi_58(self):
+        result = remove_country_code("5873123123", "FI")
+        self.assertEqual(result, ("73123123"))
+
+    def test_remove_country_code_fi_058(self):
+        result = remove_country_code("05873123123", "FI")
+        self.assertEqual(result, ("73123123"))
+
