@@ -2,7 +2,7 @@ from django.test import TestCase
 
 # Create your tests here.
 
-from .cleaningTelNum import remove_spaces_from_tel, remove_plus_from_tel, remove_country_code
+from .cleaningTelNum import remove_spaces_from_tel, remove_plus_from_tel, remove_country_code, place_zero_at_first
 
 
 class RemoveSpacesFromTel(TestCase):
@@ -69,3 +69,10 @@ class RemoveCountryCodeFI(TestCase):
     def test_remove_country_code_fi_00(self):
         result = remove_country_code("0073123123", "FI")
         self.assertEqual(result, ("73123123"))
+
+
+class PlaceZeroAtFirst(TestCase):
+
+    def test_place_zero(self):
+            result = place_zero_at_first("73123123")
+            self.assertEqual(result, ("073123123"))
