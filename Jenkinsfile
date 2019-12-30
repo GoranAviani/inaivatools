@@ -13,7 +13,7 @@ node {
         stage 'Update Python Modules and test'
             // Create a virtualenv in this folder, and install or upgrade packages
             // specified in requirements.txt; https://pip.readthedocs.io/en/1.1/requirements.html
-            sh 'virtualenv env1'
+            sh 'python -m virtualenv env1'
             sh '. env1/bin/activate && pip3 install --upgrade -r requirements.txt && python ./manage.py test'
 
         
