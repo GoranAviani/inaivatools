@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Jenkinsfile used for ci in raspberry pi
+
 node {
 
     try {
