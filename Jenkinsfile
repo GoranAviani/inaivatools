@@ -14,7 +14,7 @@ node {
             // Create a virtualenv in this folder, and install or upgrade packages
             // specified in requirements.txt; https://pip.readthedocs.io/en/1.1/requirements.html
             sh 'python3 -m virtualenv env1'
-            sh './env1/bin/activate'
+            sh '. env1/bin/activate'
 
         
         stage 'Deploy'
