@@ -1,0 +1,39 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+        <div class="well  normal-center-container">
+            <h2>Morse code coding or decoding</h2>
+            <form method="post" class="form-horizontal row-fluid">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Input text:</label>
+                    <div class="controls">
+                        {{morseCodeData.inputText}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Result lines:</label>
+                    <div class="controls">
+                        {{morseCodeData.resultText}}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="basicinput">Code or decode:</label>
+                    <div class="controls">
+                        {{morseCodeData.codeOrDecode}} <span class="help-inline">Coding to Morse code set by default.</span>
+                    </div>
+                </div>
+            </br></br>
+                <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary textSize20px">Submit</button>
+                      </div>
+            </form>
+        </br></br>
+        <div class="d-flex justify-content-center">
+            <p><a href="{% url 'index' %}" class="btn textSize20px btn-primary">Return to dashboard</a></p>
+        </div>
+        </div>
+  </div>
+{% endblock %}
