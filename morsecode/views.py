@@ -9,7 +9,6 @@ def code_decode(**kwargs):
     try:
         inputText = kwargs["inputText"]
         codeOrDecode = kwargs["codeOrDecode"]
-
     except:
         return "error", "Can not fetch morse code data from the users input"
 
@@ -33,9 +32,10 @@ def morse_coder_decoder(request):
 
             data = {'inputText': inputText,'resultText': morseResult, 'codeOrDecode': codeOrDecode}
             morseCodeData = morse_code_form(initial=data)
-
             return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
-
+        else:
+            morseCodeData = morse_code_form()
+            return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
     else:
         morseCodeData = morse_code_form()
         return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
