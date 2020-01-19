@@ -40,9 +40,7 @@ def code_decode(**kwargs):
             if x.upper() in MORSE_CODE_DICT:
                 resultText += MORSE_CODE_DICT[x.upper()]
     elif codeOrDecode == "decode":
-        pass
-
-
+        return "error", "Decoding Morse code to text not built."
 
     return "success", resultText
 
