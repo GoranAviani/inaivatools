@@ -59,8 +59,9 @@ def morse_coder_decoder(request):
 
             #Display error message if coding or decoding failed
             if morseStatus == "error":
-                return HttpResponse(morseResult)
-
+                data = {'inputText': inputText, 'resultText': morseResult, 'codeOrDecode': codeOrDecode}
+                morseCodeData = morse_code_form(initial=data)
+                return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
 
             data = {'inputText': inputText,'resultText': morseResult, 'codeOrDecode': codeOrDecode}
             morseCodeData = morse_code_form(initial=data)
