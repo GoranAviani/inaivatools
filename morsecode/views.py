@@ -26,7 +26,7 @@ def code_decode(**kwargs):
                        '7': '--...', '8': '---..', '9': '----.',
                        '0': '-----', ', ': '--..--', '.': '.-.-.-',
                        '?': '..--..', '/': '-..-.', '-': '-....-',
-                       '(': '-.--.', ')': '-.--.-'}
+                       '(': '-.--.', ')': '-.--.-', " ": "/"}
 
     #check if all letters are in the morse alphabet. if not return a message to user
     textToProcess = list(inputText)
