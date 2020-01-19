@@ -40,11 +40,13 @@ def code_decode(**kwargs):
             if x.upper() in MORSE_CODE_DICT:
                 resultText += MORSE_CODE_DICT[x.upper()]
     elif codeOrDecode == "decode":
+        # TODO
         return "error", "Decoding Morse code to text not built."
 
     return "success", resultText
 
 def morse_coder_decoder(request):
+    templateLocation = "morseCode/morsecode.html"
     if request.method == 'POST':
         morseCodeData = morse_code_form(request.POST)
         if morseCodeData.is_valid():
@@ -59,15 +61,15 @@ def morse_coder_decoder(request):
             if morseStatus == "error":
                 data = {'inputText': inputText, 'resultText': morseResult, 'codeOrDecode': codeOrDecode}
                 morseCodeData = morse_code_form(initial=data)
-                return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
+                return render(request, templateLocation, {'morseCodeData': morseCodeData})
             #display succesfull text
             data = {'inputText': inputText,'resultText': morseResult, 'codeOrDecode': codeOrDecode}
             morseCodeData = morse_code_form(initial=data)
-            return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
+            return render(request, templateLocation, {'morseCodeData': morseCodeData})
         else:
             morseCodeData = morse_code_form()
-            return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
+            return render(request, templateLocation, {'morseCodeData': morseCodeData})
     else:
         morseCodeData = morse_code_form()
-        return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
+        return render(request, templateLocation, {'morseCodeData': morseCodeData})
 
