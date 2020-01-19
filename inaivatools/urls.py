@@ -32,7 +32,7 @@ urlpatterns = [
     path('format/', include('formattelnumbers.urls')),
     path('compare/', include('comparelists.urls')),
     path('split/', include('splittextbychar.urls')),
-    
+    path('morse/', include('morsecode.urls')),
 
     path('support/', views.render_support_page, name='supportPage'),
 
