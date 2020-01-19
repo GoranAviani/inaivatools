@@ -36,15 +36,15 @@ def code_decode(**kwargs):
 
     resultText = ""
     if codeOrDecode == "code":
-        textToProcess = list(inputText)
         for x in textToProcess:
-            pass
+            if x.upper() in MORSE_CODE_DICT:
+                resultText += MORSE_CODE_DICT[x.upper()]
     elif codeOrDecode == "decode":
         pass
 
 
 
-    return "success", "result text"
+    return "success", resultText
 
 def morse_coder_decoder(request):
     if request.method == 'POST':
@@ -62,7 +62,7 @@ def morse_coder_decoder(request):
                 data = {'inputText': inputText, 'resultText': morseResult, 'codeOrDecode': codeOrDecode}
                 morseCodeData = morse_code_form(initial=data)
                 return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
-
+            #display succesfull text
             data = {'inputText': inputText,'resultText': morseResult, 'codeOrDecode': codeOrDecode}
             morseCodeData = morse_code_form(initial=data)
             return render(request, 'morseCode/morsecode.html', {'morseCodeData': morseCodeData})
