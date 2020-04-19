@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY_INCODAQTOOLS","#$%&N(titoAD^*(%326n26835
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '157.230.127.167', '127.0.0.1', 'localhost']
 
@@ -135,9 +135,7 @@ STATIC_URL = '/static/'
 #Path settings for dev or production:
 if DEBUG == True:
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
 else:
-    #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
       
