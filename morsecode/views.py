@@ -2,8 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from .forms import morse_code_form
-from django.http import HttpResponse
-
+from .constants import MORSE_CODE_DICT
 
 def code_decode(**kwargs):
     try:
@@ -11,22 +10,6 @@ def code_decode(**kwargs):
         codeOrDecode = kwargs["codeOrDecode"]
     except:
         return "error", "Can not fetch morse code data from the users input"
-    # Dictionary representing the morse code chart
-    MORSE_CODE_DICT = {'A': '.-', 'B': '-...',
-                       'C': '-.-.', 'D': '-..', 'E': '.',
-                       'F': '..-.', 'G': '--.', 'H': '....',
-                       'I': '..', 'J': '.---', 'K': '-.-',
-                       'L': '.-..', 'M': '--', 'N': '-.',
-                       'O': '---', 'P': '.--.', 'Q': '--.-',
-                       'R': '.-.', 'S': '...', 'T': '-',
-                       'U': '..-', 'V': '...-', 'W': '.--',
-                       'X': '-..-', 'Y': '-.--', 'Z': '--..',
-                       '1': '.----', '2': '..---', '3': '...--',
-                       '4': '....-', '5': '.....', '6': '-....',
-                       '7': '--...', '8': '---..', '9': '----.',
-                       '0': '-----', ', ': '--..--', '.': '.-.-.-',
-                       '?': '..--..', '/': '-..-.', '-': '-....-',
-                       '(': '-.--.', ')': '-.--.-', " ": "/"}
 
     #check if all letters are in the morse alphabet. if not return a message to user
     textToProcess = list(inputText)
@@ -40,9 +23,7 @@ def code_decode(**kwargs):
             if x.upper() in MORSE_CODE_DICT:
                 resultText += MORSE_CODE_DICT[x.upper()]
     elif codeOrDecode == "decode":
-        # TODO
         return "error", "Decoding Morse code to text not built."
-
     return "success", resultText
 
 def morse_coder_decoder(request):
