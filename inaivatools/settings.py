@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY_INCODAQTOOLS","#$%&N(titoAD^*(%326n26835
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.tools.incodaq.com', 'tools.incodaq.com', '157.230.127.167', '127.0.0.1', 'localhost']
 
