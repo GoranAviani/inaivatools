@@ -16,16 +16,11 @@ def get_all_values_by_cell_letter(letter, currentSheet):
     for row in range(1, currentSheet.max_row + 1):
         for column in letter:
             cell_name = "{}{}".format(column, row)
-            #print(cell_name)
             #take old data and send it to fixing
             telephoneNo = fix_telephone_format(currentSheet[cell_name].value, "SE")
             #put new data in cell
 
-
-            #print(letter + "1")
             if cell_name == (letter + "1"):
-                #print(letter + "0")
-                #print("aaaaa")
                 currentSheet[cell_name].value = "telephone"
             else:
                 currentSheet[cell_name].value = telephoneNo

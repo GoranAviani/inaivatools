@@ -15,8 +15,9 @@ def process_comparison_of_lists(inputList1, inputList2):
     foundInList2 = []
     missingInList2 = []
 
-    for x in inputList1: #for every x in list 1 find it in list 2 and save in found 1
-        # if x in not found in list 2 save it in missing 2
+    # for every x in list 1 find it in list 2 and save in found 1
+    # if x in not found in list 2 save it in missing 2
+    for x in inputList1:
         foundInList2.append(x) if x in inputList2 else missingInList2.append(x)
     forDisplayFoundInList2, forDisplayMissingInList2 = display_results_in_rows(foundInList2, missingInList2)
 

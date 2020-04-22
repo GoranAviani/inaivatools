@@ -9,24 +9,11 @@ from formattelnumbers.views import process_numbers
 from apirelay import dataProcessing
 
 def render_api_docs(request):
-    return render(
-    request,
-    'apiRelay/api_docs.html'
-)
+    return render(request, 'apiRelay/api_docs.html')
 
 class format_tel_numbers_api(APIView):
- # serializer_class = TelNumberSerializer
 
     def get(self, request):     
-      
-  #      listOfTelNumbers=[]
- #       telCountry = {}
-#        telNumberList = {}
-
-        #dict= request._request.GET #geting the data from QueryDict
-        #dict = dict.dict() #QueryDict to Python dict
-      
-        
         qpdict= self.request.query_params.dict()
         try:
            telCountry = qpdict["country_code"]
@@ -53,12 +40,10 @@ class format_tel_numbers_api(APIView):
       
         #Caling a view from another app
         listResult = process_numbers(listOfTelNumbers, telCountry)
-        #print(listResult)
-
         listResultChar = ",".join(listResult)
-        #print(listResultChar)
 
         data = {'status': "SUCCESS", "country_code": telCountry, 'telephone_numbers': listResultChar}
+
         return Response(data, status=status.HTTP_200_OK)
 
 
