@@ -4,14 +4,10 @@ def remove_spaces_from_tel(telephoneNo):
     result = ""
     if len(list(telephoneNo)) > 0:
         for x in telephoneNo:
-            if x == " ":
-                pass
-            else:
+            if x != " ":
                 result += x
-                
+
     return result
-
-
 
 #Remove first + from the telephone number
 def remove_plus_from_tel(telephoneNo):

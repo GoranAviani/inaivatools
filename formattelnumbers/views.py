@@ -49,7 +49,6 @@ def format_tel_numbers_input(request):
             #processing of telephone numbers
             listResult = process_numbers(listTextData, countrydata)
 
-
             #turn list into rows
             rowTextData = turn_list_to_row(listResult)
 
@@ -92,9 +91,7 @@ def format_tel_numbers_upload(request):
                     theFile = openpyxl.load_workbook("media/format_tel_number/" + str(documentName))
                     allSheetNames = theFile.sheetnames
 
-        #            print("\n\nAll sheet names {} " .format(allSheetNames)) 
                     for sheet in allSheetNames:
-                        #print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
                         currentSheet = theFile[sheet]
                         specificCellLetter = (cleaningTelNumPreparation.find_specific_cell(currentSheet))
                         letter = cleaningTelNumPreparation.get_column_letter(specificCellLetter)
@@ -114,7 +111,6 @@ def format_tel_numbers_upload(request):
                     from django.conf import settings
                     os.remove(os.path.join(settings.MEDIA_ROOT, "format_tel_number/" + str(documentName)))                                
                     return response
-                    #return redirect('formattelnumbersupload')
                 else:
                     form = uploaded_documents_form()
         else:
